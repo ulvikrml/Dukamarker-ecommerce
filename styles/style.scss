@@ -65,11 +65,11 @@ header {
                     justify-content: center;
                     align-items: center;
                     margin-left: -47px;
+                    cursor: pointer;
 
                     i {
                         font-size: 19px;
                         color: white;
-                        cursor: pointer;
                     }
                 }
             }
@@ -148,28 +148,45 @@ header {
 }
 
 main {
+
+    // margin-top: 1000px;
     .vip-products {
         padding: 30px 0px 70px;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+        }
 
         .vip-products-left {
             width: 58%;
             height: auto;
             display: flex;
 
-            // margin-right: 30px;
             .vip-product-swiper {
                 width: 100%;
+                height: 340px;
 
                 .swiper-wrapper {
                     .swiper-slide {
-                        .slider-img {
-                            img {}
-                        }
+                        position: relative;
 
+                        img {
+                            width: 100%;
+                            height: 100% !important;
+                            object-fit: cover;
+                            border-radius: 20px;
+                        }
                         .content {
+                            position: absolute;
+                            top: 0px;
+                            display: flex;
+                            flex-direction: column;
+                            padding: 50px 50px;
+                            z-index: 100;
+
                             h2 {
                                 color: white;
                                 font-size: 40px;
@@ -193,135 +210,106 @@ main {
                                 padding: 15px 40px;
                                 border-radius: 50px;
                                 border: 2px solid white;
+                                text-decoration: none;
+                                transition: 0.5s ease;
+
+                                &:hover {
+                                    color: black;
+                                    background: white;
+                                }
+                            }
+                        }
+                    }
+                }
+                .swiper-pagination {
+                    margin-bottom: 20px;
+            
+                    .swiper-pagination-bullet {
+                        background: rgba($color: #ffffff, $alpha: 0.5);
+                        width: 7px;
+                        height: 7px;
+                        border-radius: 50%;
+                        opacity: 1;
+                    }
+            
+                    .swiper-pagination-bullet-active {
+                        background: rgba($color: #ffffff, $alpha: 1);
+                        width: 35px;
+                        height: 7px;
+                        border-radius: .5rem;
+                    }
+                }
+            }
+        }
+
+        .vip-products-right {
+            width: 40%;
+            height: auto;
+            .vip-right-inner{
+                width: 100%;
+                height: 340px;
+                display: flex;
+                flex-direction: column;
+                // align-items: space-between;
+                justify-content: space-between;
+                .row{
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                    .pr-20{
+                        padding-right: 20px;
+                    }
+                    .banner {
+                        position: relative;
+                        width: 240px;
+                        height: 160px;
+        
+                        img {
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
+                            border-radius: 20px;
+                        }
+        
+                        .content {
+                            position: absolute;
+                            color: white;
+                            top: 0px;
+                            padding: 20px 30px;
+        
+                            a {
+                                color: white;
+                                font-size: 23px;
+                                font-weight: normal;
+                                display: inline-block;
+                                margin-bottom: 17px;
                             }
                         }
                     }
                 }
             }
-
-            .slider-img img {
-                max-width: 100%;
-                height: auto;
-                border-radius: 20px;
-                object-fit: cover;
-            }
-
-            .sliders {
-                position: relative;
-
-                .slider {
-                    position: absolute;
-                    width: 720px;
-
-                    .content {
-                        /* display: inline-block; */
-                        position: absolute;
-                        top: 0px;
-                        display: flex;
-                        flex-direction: column;
-                        padding: 40px 60px;
-
-
-                    }
-                }
-
-                .dots {
-                    /* display: inline-block; */
-                    display: flex;
-                    position: absolute;
-                    bottom: 25px;
-                    left: 340px;
-
-                    .dot {
-                        display: inline-block;
-                        border-radius: 50%;
-                        margin-right: 12px;
-                        width: 6px;
-                        height: 6px;
-                        background-color: rgba(225, 225, 225, .6);
-
-                        &:hover {
-                            background-color: rgba(225, 225, 225);
-
-                        }
-                    }
-
-                    .dot_active {
-                        border-radius: 3px !important;
-                        background: white !important;
-                        width: 35px !important;
-                    }
-                }
-            }
-        }
-
-        .vip_products_right {
-            width: 42%;
-            height: auto;
-            display: flex;
-
-            .first {
-                padding-right: 20px;
-            }
-
-            .banner {
-                position: relative;
-                width: 250px;
-
-                img {
-                    max-width: 100%;
-                    height: auto;
-                    object-fit: cover;
-                    border-radius: 20px;
-                }
-
-                .content {
-                    position: absolute;
-                    color: white;
-                    top: 0px;
-                    padding: 20px 30px;
-
-                    a {
-                        color: white;
-                        font-size: 23px;
-                        font-weight: normal;
-                        display: inline-block;
-                        margin-bottom: 17px;
-                    }
-                }
-            }
+            
         }
     }
-
-}
-
-.swiper {
-    width: 400px;
-    height: 300px;
 }
 
 .vip-product-swiper {
-    .swiper-pagination-bullet {
-        background: white;
-        width: 1rem;
-        height: 1rem;
-        border-radius: .5rem;
-        opacity: 1;
+    .swiper-pagination {
+        margin-bottom: 20px;
+
+        .swiper-pagination-bullet {
+            background: rgba($color: #ffffff, $alpha: 0.5);
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            opacity: 1;
+        }
+
+        .swiper-pagination-bullet-active {
+            background: rgba($color: #ffffff, $alpha: 1);
+            width: 35px;
+            height: 7px;
+            border-radius: .5rem;
+        }
     }
-
-    .swiper-pagination-bullet-active {
-        background-color: blue;
-        width: 5rem;
-        height: 1rem;
-        border-radius: .5rem;
-    }
-}
-
-.swiper-pagination-bullet-active {
-    color: #000 !important;
-}
-
-.swiper-pagination-bullet {
-    background-color: red;
-    opacity: 0;
 }

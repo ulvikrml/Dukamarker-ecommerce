@@ -92,9 +92,7 @@
                     <div class="swiper vip-product-swiper">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide">
-                                <div class="slider-img">
                                     <img src="img/slide/slide-home1.png" alt="vip1">
-                                </div>
                                 <div class="content">
                                     <h2>Gaming HeadSet</h2>
                                     <h2>Lighting Effect</h2>
@@ -103,9 +101,7 @@
                                 </div>
                             </div>
                             <div class="swiper-slide">
-                                <div class="slider-img">
                                     <img src="img/slide/slide-home2.png" alt="vip2">
-                                </div>
                                 <div class="content">
                                     <h2>Sport Edition</h2>
                                     <h2>Best Choice of your</h2>
@@ -114,9 +110,7 @@
                                 </div>
                             </div>
                             <div class="swiper-slide">
-                                <div class="slider-img">
                                     <img src="img/slide/slide-home3.png" alt="vip3">
-                                </div>
                                 <div class="content">
                                     <h2>Sport Edition</h2>
                                     <h2>Best Choice of your</h2>
@@ -127,85 +121,44 @@
                         </div>
                         <div class="swiper-pagination"></div>
                     </div>
-
-
-
-                    <!-- <div class="sliders">
-                        <div class="slider">
-                            <div class="slider_img">
-                                <img src="img/slide/slide-home1.png" alt="vip1">
-                            </div>
-                            <div class="content">
-                                <h2>Gaming HeadSet</h2>
-                                <h2>Lighting Effect</h2>
-                                <p>Wireless Connection With TV, Computer, Laptop..</p>
-                                <a href="#">DISCOVER NOW</a>
-                            </div>
-                        </div>
-                        <div class="slider">
-                            <div class="slider_img">
-                                <img src="img/slide/slide-home2.png" alt="vip2">
-                            </div>
-                            <div class="content">
-                                <h2>Sport Edition</h2>
-                                <h2>Best Choice of your</h2>
-                                <p>Wireless Connection With TV, Computer, Laptop..</p>
-                                <a href="#">DISCOVER NOW</a>
-                            </div>
-                        </div>
-                        <div class="slider">
-                            <div class="slider_img">
-                                <img src="img/slide/slide-home3.png" alt="vip3">
-                            </div>
-                            <div class="content">
-                                <h2>Sport Edition</h2>
-                                <h2>Best Choice of your</h2>
-                                <p>Wireless Connection With TV, Computer, Laptop..</p>
-                                <a href="#">DISCOVER NOW</a>
-                            </div>
-                        </div>
-                        <div class="dots">
-                            <span class="dot"></span>
-                            <span class="dot"></span>
-                            <span class="dot dot_active"></span>
-                        </div>
-                    </div> -->
                 </div>
-                <!-- <div class="vip_products_right ">
-                    <div class="first pr-25">
-                        <div class="banner pb-14">
-                            <div class="banner_img"><img src="img/banner/banner1.png" alt=""></div>
-                            <div class="content">
-                                <h3><a href="#">Canyon<br> Star Raider</a></h3>
-                                <p>Headphone & Audio</p>
+                
+                <div class="vip-products-right ">
+                    <div class="vip-right-inner">
+                        <div class="row">
+                            <div class="banner pr-20">
+                                <img src="img/banner/banner1.png" alt=""> 
+                                <div class="content">
+                                    <h3><a href="#">Canyon<br> Star Raider</a></h3>
+                                    <p>Headphone & Audio</p>
+                                </div>
+                            </div>
+                            <div class="banner">
+                                <img src="img/banner/banner3.png" alt="">
+                                <div class="content">
+                                    <h3><a href="#">Galaxy <br> Buds Plus</a></h3>
+                                    <p>Wireless Earbuds</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="banner">
-                            <div class="banner_img"><img src="img/banner/banner3.png" alt=""></div>
-                            <div class="content">
-                                <h3><a href="#">Galaxy <br> Buds Plus</a></h3>
-                                <p>Wireless Earbuds</p>
+                        <div class="row">
+                            <div class="banner pr-20">
+                                <img src="img/banner/banner2.png" alt="">
+                                <div class="content">
+                                    <h3><a href="#">Phone <br> Galaxy S20</a></h3>
+                                    <p>Cellphone & Tablets</p>
+                                </div>
+                            </div>
+                            <div class="banner">
+                                <img src="img/banner/banner4.png" alt="">
+                                <div class="content">
+                                    <h3><a href="#">Chair <br> Swoon Lounge</a></h3>
+                                    <p>Decor & Furniture</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="second">
-                        <div class="banner pb-14">
-                            <div class="banner_img"><img src="img/banner/banner2.png" alt=""></div>
-                            <div class="content">
-                                <h3><a href="#">Phone <br> Galaxy S20</a></h3>
-                                <p>Cellphone & Tablets</p>
-                            </div>
-                        </div>
-                        <div class="banner">
-                            <div class="banner_img"><img src="img/banner/banner4.png" alt=""></div>
-                            <div class="content">
-                                <h3><a href="#">Chair <br> Swoon Lounge</a></h3>
-                                <p>Decor & Furniture</p>
-                            </div>
-                        </div>
-                    </div>
-
-                </div> -->
+                </div>
             </div>
         </div>
     </main>
@@ -216,11 +169,17 @@
         const swiper = new Swiper('.vip-product-swiper', {
             direction: 'horizontal',
             loop: true,
+            effect: "fade",
             pagination: {
                 el: '.swiper-pagination',
+                clickable: true,
             },
-            slidesPerView: 1
-        });
+            slidesPerView: 1,
+            autoplay: {
+                delay: 5500,
+                disableOnInteraction: false,
+            }
+        })
     </script>
 </body>
 
