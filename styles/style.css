@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&display=swap");
+@import url("./_header.scss");
 * {
   margin: 0;
   padding: 0;
@@ -14,9 +15,35 @@ input {
   font-family: "Rubik", sans-serif;
 }
 
+a {
+  text-decoration: none;
+}
+
 .container {
   width: 85%;
   margin: auto;
+}
+
+.headline {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1px solid rgba(225, 225, 225, 0.5);
+}
+.headline h3 {
+  font-size: 24px;
+  font-weight: normal;
+  padding-bottom: 9px;
+  border-bottom: 2px solid #16BCDC;
+}
+.headline a {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.6);
+  margin-top: 8px;
+}
+.headline a i {
+  font-size: 12px;
+  padding-left: 9px;
 }
 
 header {
@@ -80,12 +107,10 @@ header .header-top .container .user-prop .box .right {
   flex-direction: column;
 }
 header .header-top .container .user-prop .box .right .title {
-  text-decoration: none;
   color: rgb(202, 202, 202);
   font-size: 12px;
 }
 header .header-top .container .user-prop .box .right .link {
-  text-decoration: none;
   color: white;
   font-size: 14px;
   transition: 0.3s ease;
@@ -103,7 +128,6 @@ header .header-bottom .container .menu .menu-link {
   color: white;
   font-size: 14px;
   font-weight: 500;
-  text-decoration: none;
   margin-right: 30px;
   transition: 0.5s ease;
 }
@@ -115,6 +139,9 @@ header .header-bottom .container .add-text p {
   color: white;
 }
 
+main {
+  background: #F3F5F6;
+}
 main .vip-products {
   padding: 30px 0px 70px;
 }
@@ -171,7 +198,6 @@ main .vip-products .vip-products-left .vip-product-swiper .swiper-wrapper .swipe
   padding: 15px 40px;
   border-radius: 50px;
   border: 2px solid white;
-  text-decoration: none;
   transition: 0.5s ease;
 }
 main .vip-products .vip-products-left .vip-product-swiper .swiper-wrapper .swiper-slide .content a:hover {
@@ -238,20 +264,149 @@ main .vip-products .vip-products-right .vip-right-inner .row .banner .content a 
   display: inline-block;
   margin-bottom: 17px;
 }
-
-.vip-product-swiper .swiper-pagination {
-  margin-bottom: 20px;
+main .trend-products .productSwiper {
+  width: 100%;
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: hidden;
+  height: 370px;
 }
-.vip-product-swiper .swiper-pagination .swiper-pagination-bullet {
-  background: rgba(255, 255, 255, 0.5);
-  width: 7px;
-  height: 7px;
+main .trend-products .productSwiper .swiper-wrapper .swiper-slide {
+  width: 190px;
+  height: 315px;
+  background-color: white;
+  border-radius: 20px;
+  position: relative;
+  margin-right: 20px;
+  transition: 0.1s ease-in-out;
+  overflow: hidden;
+}
+main .trend-products .productSwiper .swiper-wrapper .swiper-slide:hover {
+  height: 360px;
+}
+main .trend-products .productSwiper .swiper-wrapper .swiper-slide .card-photo img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 160px;
+  height: auto;
+  vertical-align: text-bottom;
+  margin: 20px 10px 10px;
+}
+main .trend-products .productSwiper .swiper-wrapper .swiper-slide .card-disc {
+  width: 48px;
+  height: 20px;
+  background-color: #5AAB19;
+  color: white;
+  position: absolute;
+  top: 18px;
+  left: 20px;
+  border-radius: 2px;
+}
+main .trend-products .productSwiper .swiper-wrapper .swiper-slide .card-disc span {
+  padding: 1px 10px;
+  font-size: 12px;
+}
+main .trend-products .productSwiper .swiper-wrapper .swiper-slide .card-inform {
+  padding: 0px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100px;
+}
+main .trend-products .productSwiper .swiper-wrapper .swiper-slide .card-inform a {
+  color: #0A6ECB;
+  font-size: 14px;
+  display: inline-block;
+  font-weight: 500;
+}
+main .trend-products .productSwiper .swiper-wrapper .swiper-slide .card-inform .stars i {
+  color: #f99806;
+  font-size: 12px;
+  margin-right: -3px;
+}
+main .trend-products .productSwiper .swiper-wrapper .swiper-slide .card-inform .stars span {
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 13px;
+  margin-left: 3px;
+}
+main .trend-products .productSwiper .swiper-wrapper .swiper-slide .card-inform .price {
+  font-weight: 500;
+  margin-top: 15px;
+}
+main .trend-products .productSwiper .swiper-wrapper .swiper-slide .addtocard {
+  margin-top: -20px;
+  margin-left: 17px;
+}
+main .trend-products .productSwiper .swiper-wrapper .swiper-slide .addtocard .trend-add {
+  outline: none;
+  border: none;
+  color: white;
+  background: #16BCDC;
+  padding: 12px 30px;
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: 12px;
+  margin-top: 20px;
+  opacity: 0;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+main .trend-products .productSwiper .swiper-wrapper .swiper-slide .addtocard .trend-add:hover {
+  background: #108aa2;
+}
+main .trend-products .productSwiper .swiper-wrapper .swiper-slide .adds {
+  position: absolute;
+  right: 0px;
+  opacity: 0;
+  top: 30px;
+  display: flex;
+  flex-direction: column;
+  transition: 0.3s ease-in-out;
+}
+main .trend-products .productSwiper .swiper-wrapper .swiper-slide .adds .add-box {
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
   border-radius: 50%;
+  background-color: rgba(225, 225, 225, 0.5);
+  display: inline-block;
+  margin-bottom: 7px;
+  position: relative;
+  transition: 0.3s ease-in-out;
+}
+main .trend-products .productSwiper .swiper-wrapper .swiper-slide .adds .add-box:hover {
+  background-color: #16bcdc;
+}
+main .trend-products .productSwiper .swiper-wrapper .swiper-slide .adds .add-box:hover .trendcard-add {
+  color: white !important;
+}
+main .trend-products .productSwiper .swiper-wrapper .swiper-slide .adds .add-box .trendcard-add {
+  margin-top: 0px;
+  opacity: 1;
+  position: absolute;
+  font-size: 13px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgba(0, 0, 0, 0.5);
+}
+main .trend-products .productSwiper .swiper-wrapper .swiper-slide:hover .trend-add {
+  transform: translateY(20px);
   opacity: 1;
 }
-.vip-product-swiper .swiper-pagination .swiper-pagination-bullet-active {
-  background: white;
-  width: 35px;
-  height: 7px;
-  border-radius: 0.5rem;
+main .trend-products .productSwiper .swiper-wrapper .swiper-slide:hover .adds {
+  transform: translateX(-10px);
+  opacity: 1;
+}
+main .trend-products .productSwiper .swiper-wrapper .indiscount .card-inform .price .new-price {
+  color: #CC1414;
+}
+main .trend-products .productSwiper .swiper-wrapper .indiscount .card-inform .price .old-price {
+  display: inline-block;
+  color: #a4a4a4;
+  font-weight: 400 !important;
+  font-size: 14px;
+  margin-left: 5px;
+  text-decoration: line-through;
 }/*# sourceMappingURL=style.css.map */
