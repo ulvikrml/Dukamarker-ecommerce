@@ -57,3 +57,29 @@ const popularSwiper = new Swiper(".popularSwiper", {
         }
     }
 });
+const blogSwiper = new Swiper(".blogSwiper", {
+    slidesPerView: 5,
+    spaceBetween: 20,
+    grabCursor: true,
+    loop: false,
+    breakpoints: {
+        0: {
+            slidesPerView: 1
+        },
+        500: {
+            slidesPerView: 2,
+            spaceBetween: 15
+        },
+        800: {
+            slidesPerView: 3,
+            spaceBetween: 15
+        },
+        1000: {
+            slidesPerView: 4
+        }
+    },
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+});

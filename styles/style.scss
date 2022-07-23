@@ -6,6 +6,7 @@
 @import './components/popularCategories';
 @import './components/discountProducts';
 @import './components/marquee';
+@import './components/blog';
 
 @mixin flexBetween($direction) {
     display: flex;
@@ -54,10 +55,14 @@ a {
         font-size: 14px;
         color: rgba(0, 0, 0, .6);
         margin-top: 8px;
+        transition: 0.5s ease;
 
         i {
             font-size: 12px;
             padding-left: 9px;
+        }
+        &:hover{
+            color: $primaryTxtColor;
         }
     }
 }
@@ -68,6 +73,4 @@ a {
 
 main {
     background: #F3F5F6;
-    // background: #000;
-    // margin-top: 1000px;
 }

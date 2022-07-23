@@ -472,6 +472,90 @@ main .marquee_inform marquee span {
   margin-right: 200px;
 }
 
+main .blog {
+  margin-top: 120px;
+}
+main .blog .blogSwiper {
+  margin-top: 30px;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  overflow-x: hidden;
+}
+main .blog .blogSwiper .card {
+  border-radius: 20px;
+  width: 235px;
+  background: white;
+  position: relative;
+}
+main .blog .blogSwiper .card .card_img {
+  overflow: hidden;
+  width: 100%;
+  max-height: 147px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+main .blog .blogSwiper .card .card_img img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: all 0.3s ease-in-out;
+}
+main .blog .blogSwiper .card:hover img {
+  transform: scale(1.1, 1.1);
+}
+main .blog .blogSwiper .card .card_content {
+  padding: 23px 20px;
+}
+main .blog .blogSwiper .card .card_content .link {
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 15px;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+main .blog .blogSwiper .card .card_content .post_by {
+  color: #999999;
+  font-size: 12px;
+}
+main .blog .blogSwiper .card .card_content .post_by .poster {
+  color: #16bcdc;
+  font-weight: 500;
+}
+main .blog .blogSwiper .card .card_content p {
+  color: #666666;
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  margin: 20px 0px;
+}
+main .blog .blogSwiper .card .card_content .read_more {
+  padding-top: 20px;
+  border-top: 1px solid rgba(225, 225, 225, 0.7);
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: space-between;
+}
+main .blog .blogSwiper .card .card_content .read_more a {
+  color: rgba(0, 0, 0, 0.7);
+}
+main .blog .blogSwiper .card .card_content .categorie {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 15px 18px;
+}
+main .blog .blogSwiper .card .card_content .categorie span {
+  color: white;
+  background-color: #16bcdc;
+  padding: 3px 12px;
+  font-size: 13px;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -512,10 +596,14 @@ a {
   font-size: 14px;
   color: rgba(0, 0, 0, 0.6);
   margin-top: 8px;
+  transition: 0.5s ease;
 }
 .headline a i {
   font-size: 12px;
   padding-left: 9px;
+}
+.headline a:hover {
+  color: #16BCDC;
 }
 
 .mr-15 {
