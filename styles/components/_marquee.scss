@@ -1,0 +1,19 @@
+main{
+    .marquee_inform{
+        width: 100%;
+        background: #263C97;
+        position: absolute;
+        left: 0px;
+        marquee{
+            height: 50px;
+            color: white;
+            display: flex;
+            align-items: center;
+            margin-left: 50px;
+            margin-right: 50px;
+            span{
+                margin-right: 200px;
+            }
+        }
+    }
+}

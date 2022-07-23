@@ -454,6 +454,24 @@ main .discount-products .products-container .card .content p {
   margin-top: 18px;
 }
 
+main .marquee_inform {
+  width: 100%;
+  background: #263C97;
+  position: absolute;
+  left: 0px;
+}
+main .marquee_inform marquee {
+  height: 50px;
+  color: white;
+  display: flex;
+  align-items: center;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+main .marquee_inform marquee span {
+  margin-right: 200px;
+}
+
 * {
   margin: 0;
   padding: 0;
