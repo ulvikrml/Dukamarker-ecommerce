@@ -1,0 +1,120 @@
+header {
+    background: $primaryBgColor;
+
+    .header-top {
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-block: 30px;
+            border-bottom: 1px solid rgba($color: #ffffff, $alpha: 0.1);
+
+            .logo {
+                width: 200px;
+
+                img {
+                    width: 100%;
+                }
+            }
+
+            .search-bar {
+                display: flex;
+                align-items: center;
+
+                input {
+                    padding: 15px 20px;
+                    outline: none;
+                    border: none;
+                    width: 400px;
+                    border-radius: 3px;
+                    height: 50px;
+                    font-size: 14px;
+                }
+
+                .search-submit {
+                    width: 44px;
+                    height: 44px;
+                    border-radius: 3px;
+                    background: $primaryTxtColor;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin-left: -47px;
+                    cursor: pointer;
+
+                    i {
+                        font-size: 19px;
+                        color: white;
+                    }
+                }
+            }
+
+            .user-prop {
+                display: flex;
+
+                .box {
+                    display: flex;
+                    margin-right: 20px;
+
+                    .left {
+                        i {
+                            font-size: 30px;
+                            color: white;
+                            margin-right: 10px;
+                        }
+                    }
+
+                    .right {
+                        display: flex;
+                        flex-direction: column;
+
+                        .title {
+                            color: rgb(202, 202, 202);
+                            font-size: 12px;
+                        }
+
+                        .link {
+                            color: white;
+                            font-size: 14px;
+                            transition: 0.3s ease;
+
+                            &:hover {
+                                color: $primaryTxtColor;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .header-bottom {
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0px;
+
+            .menu {
+                .menu-link {
+                    color: white;
+                    font-size: 14px;
+                    font-weight: 500;
+                    margin-right: 30px;
+                    transition: 0.5s ease;
+
+                    &:hover {
+                        color: $primaryTxtColor;
+                    }
+                }
+            }
+
+            .add-text {
+                p {
+                    font-size: 14px;
+                    color: white;
+                }
+            }
+        }
+    }
+}

@@ -1,17 +1,17 @@
-// const vipProductSwiper = new Swiper('.vip-product-swiper', {
-//     direction: 'horizontal',
-//     loop: true,
-//     effect: "fade",
-//     pagination: {
-//         el: '.swiper-pagination',
-//         clickable: true,
-//     },
-//     slidesPerView: 1,
-//     autoplay: {
-//         delay: 5500,
-//         disableOnInteraction: false,
-//     }
-// });
+const vipProductSwiper = new Swiper('.vip-product-swiper', {
+    direction: 'horizontal',
+    loop: true,
+    effect: "fade",
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    },
+    slidesPerView: 1,
+    autoplay: {
+        delay: 5500,
+        disableOnInteraction: false,
+    }
+});
 const productSwiper = new Swiper(".productSwiper", {
     loop: true,
     slidesPerView: 6,
@@ -35,6 +35,25 @@ const productSwiper = new Swiper(".productSwiper", {
         },
         1200: {
             slidesPerView: 6
+        }
+    }
+});
+const popularSwiper = new Swiper(".popularSwiper", {
+    loop: false,
+    spaceBetween: 15,
+    grabCursor: true,
+    breakpoints: {
+        0: {
+            slidesPerView: 1
+        },
+        500: {
+            slidesPerView: 2
+        },
+        800: {
+            slidesPerView: 3
+        },
+        1000: {
+            slidesPerView: 4
         }
     }
 });

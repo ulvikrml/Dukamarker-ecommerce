@@ -1,51 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&display=swap");
-@import url("./_header.scss");
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: "Rubik", sans-serif;
-}
-
-button,
-input {
-  font-family: "Rubik", sans-serif;
-}
-
-a {
-  text-decoration: none;
-}
-
-.container {
-  width: 85%;
-  margin: auto;
-}
-
-.headline {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  border-bottom: 1px solid rgba(225, 225, 225, 0.5);
-}
-.headline h3 {
-  font-size: 24px;
-  font-weight: normal;
-  padding-bottom: 9px;
-  border-bottom: 2px solid #16BCDC;
-}
-.headline a {
-  font-size: 14px;
-  color: rgba(0, 0, 0, 0.6);
-  margin-top: 8px;
-}
-.headline a i {
-  font-size: 12px;
-  padding-left: 9px;
-}
-
 header {
   background: #263C97;
 }
@@ -139,9 +92,6 @@ header .header-bottom .container .add-text p {
   color: white;
 }
 
-main {
-  background: #F3F5F6;
-}
 main .vip-products {
   padding: 30px 0px 70px;
 }
@@ -264,6 +214,7 @@ main .vip-products .vip-products-right .vip-right-inner .row .banner .content a 
   display: inline-block;
   margin-bottom: 17px;
 }
+
 main .trend-products .productSwiper {
   width: 100%;
   margin-top: 30px;
@@ -409,4 +360,102 @@ main .trend-products .productSwiper .swiper-wrapper .indiscount .card-inform .pr
   font-size: 14px;
   margin-left: 5px;
   text-decoration: line-through;
+}
+
+main .popular-categories .popularSwiper {
+  display: flex;
+  overflow-x: hidden;
+}
+main .popular-categories .popularSwiper .swiper-wrapper {
+  padding: 30px 0px 60px;
+}
+main .popular-categories .popularSwiper .swiper-wrapper .swiper-slide {
+  border-radius: 20px;
+  cursor: pointer;
+  height: 120px;
+  position: relative;
+  margin-right: 20px;
+  overflow: hidden;
+  display: block;
+}
+main .popular-categories .popularSwiper .swiper-wrapper .swiper-slide .card-img {
+  overflow: hidden;
+}
+main .popular-categories .popularSwiper .swiper-wrapper .swiper-slide .card-img img {
+  border-radius: 20px;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: all 0.3s ease-in-out;
+}
+main .popular-categories .popularSwiper .swiper-wrapper .swiper-slide .content {
+  border-radius: 20px;
+  width: 240px;
+  height: auto;
+  position: absolute;
+  top: 0px;
+  padding: 38px 30px;
+  color: white;
+}
+main .popular-categories .popularSwiper .swiper-wrapper .swiper-slide .content h4 {
+  margin-bottom: 15px;
+  font-size: 15px;
+}
+main .popular-categories .popularSwiper .swiper-wrapper .swiper-slide .content p {
+  color: rgba(225, 225, 225, 0.6);
+  font-size: 14px;
+}
+main .popular-categories .popularSwiper .swiper-wrapper .swiper-slide:hover img {
+  transform: scale(1.1, 1.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Rubik", sans-serif;
+}
+
+button,
+input {
+  font-family: "Rubik", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  width: 85%;
+  margin: auto;
+}
+
+.headline {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1px solid rgba(225, 225, 225, 0.5);
+}
+.headline h3 {
+  font-size: 24px;
+  font-weight: normal;
+  padding-bottom: 9px;
+  border-bottom: 2px solid #16BCDC;
+}
+.headline a {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.6);
+  margin-top: 8px;
+}
+.headline a i {
+  font-size: 12px;
+  padding-left: 9px;
+}
+
+main {
+  background: #F3F5F6;
 }/*# sourceMappingURL=style.css.map */
