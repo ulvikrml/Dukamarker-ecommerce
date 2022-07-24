@@ -83,3 +83,25 @@ const blogSwiper = new Swiper(".blogSwiper", {
         prevEl: ".swiper-button-prev",
     },
 });
+const brandSwiper = new Swiper(".brandSwiper", {
+    loop: true,
+    spaceBetween: 0,
+    grabCursor: true,
+    breakpoints: {
+        0: {
+            slidesPerView: 1
+        },
+        400: {
+            slidesPerView: 2
+        },
+        600: {
+            slidesPerView: 3
+        },
+        800: {
+            slidesPerView: 4
+        },
+        1000: {
+            slidesPerView: 5
+        }
+    }
+});
