@@ -186,20 +186,19 @@ main .vip-products .vip-products-right .vip-right-inner .row {
   display: flex;
   justify-content: space-between;
 }
-main .vip-products .vip-products-right .vip-right-inner .row .pr-20 {
-  padding-right: 20px;
-}
 main .vip-products .vip-products-right .vip-right-inner .row .banner {
   position: relative;
   width: 240px;
   height: 160px;
+  border-radius: 20px;
+  overflow: hidden;
 }
 main .vip-products .vip-products-right .vip-right-inner .row .banner img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-  border-radius: 20px;
+  transition: 0.3s ease;
 }
 main .vip-products .vip-products-right .vip-right-inner .row .banner .content {
   position: absolute;
@@ -213,6 +212,13 @@ main .vip-products .vip-products-right .vip-right-inner .row .banner .content a 
   font-weight: normal;
   display: inline-block;
   margin-bottom: 17px;
+  transition: 0.5s ease;
+}
+main .vip-products .vip-products-right .vip-right-inner .row .banner .content a:hover {
+  color: #16BCDC;
+}
+main .vip-products .vip-products-right .vip-right-inner .row .banner:hover img {
+  transform: scale(1.1, 1.1);
 }
 
 main .trend-products .productSwiper {
@@ -372,13 +378,15 @@ main .popular-categories .popularSwiper .swiper-wrapper {
 main .popular-categories .popularSwiper .swiper-wrapper .swiper-slide {
   border-radius: 20px;
   cursor: pointer;
-  height: 120px;
+  height: 135px;
   position: relative;
   margin-right: 20px;
   overflow: hidden;
   display: block;
 }
 main .popular-categories .popularSwiper .swiper-wrapper .swiper-slide .card-img {
+  width: 100%;
+  height: 100%;
   overflow: hidden;
 }
 main .popular-categories .popularSwiper .swiper-wrapper .swiper-slide .card-img img {
@@ -724,6 +732,31 @@ footer .footer_bottom .footer_bottom_content .footer_menu ul li:not(:last-child)
   margin-left: 30px;
 }
 
+@media screen and (max-width: 1200px) {
+  main .discount-products .products-container .card {
+    min-height: 140px;
+  }
+}
+@media screen and (max-width: 1028px) {
+  main .vip-products .container {
+    flex-direction: column;
+  }
+  main .vip-products .container .vip-products-left {
+    width: 100%;
+  }
+  main .vip-products .container .vip-products-right {
+    width: 100%;
+    margin-top: 20px;
+  }
+  main .vip-products .container .vip-products-right .vip-right-inner .row .banner {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 592px) {
+  main .headline h3 {
+    font-size: 20px;
+  }
+}
 * {
   margin: 0;
   padding: 0;
@@ -776,6 +809,10 @@ a {
 
 .mr-15 {
   margin-right: 15px;
+}
+
+.mr-20 {
+  margin-right: 20px;
 }
 
 .ml-30 {

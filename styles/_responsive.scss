@@ -1,0 +1,48 @@
+@media screen and (max-width: 1200px) {
+    main {
+        .discount-products {
+            .products-container { 
+                .card {
+                    min-height: 140px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1028px) {
+    main {
+        .vip-products {
+            .container {
+                flex-direction: column;
+
+                .vip-products-left {
+                    width: 100%;
+                }
+
+                .vip-products-right {
+                    width: 100%;
+                    margin-top: 20px;
+
+                    .vip-right-inner {
+                        .row {
+                            .banner {
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 592px) {
+    main {
+        .headline {
+            h3 {
+                font-size: 20px;
+            }
+        }
+    }
+}

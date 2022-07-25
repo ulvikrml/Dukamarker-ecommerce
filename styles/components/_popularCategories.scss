@@ -10,13 +10,15 @@ main {
                 .swiper-slide {
                     border-radius: 20px;
                     cursor: pointer;
-                    height: 120px;
+                    height: 135px;
                     position: relative;
                     margin-right: 20px;
                     overflow: hidden;
                     display: block;
 
                     .card-img {
+                        width: 100%;
+                        height: 100%;
                         overflow: hidden;
 
                         img {
