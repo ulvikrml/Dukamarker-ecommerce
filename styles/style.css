@@ -314,7 +314,7 @@ main .trend-products .productSwiper .swiper-wrapper .swiper-slide .addtocard .tr
 }
 main .trend-products .productSwiper .swiper-wrapper .swiper-slide .adds {
   position: absolute;
-  right: 0px;
+  right: 12px;
   opacity: 0;
   top: 30px;
   display: flex;
@@ -726,10 +726,6 @@ footer .footer_bottom .footer_bottom_content .footer_menu ul li {
 }
 footer .footer_bottom .footer_bottom_content .footer_menu ul li:not(:last-child) {
   border-right: 1px solid rgba(225, 225, 225, 0.1);
-}
-
-.ml-30 {
-  margin-left: 30px;
 }
 
 @media screen and (max-width: 1200px) {
