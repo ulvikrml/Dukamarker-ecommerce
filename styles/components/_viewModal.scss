@@ -1,0 +1,178 @@
+.quick-view-modal {
+    z-index: 9999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    transition: 0.3s ease-in-out;
+
+    display: none;
+    opacity: 0;
+     
+    .modal-container {
+        position: absolute;
+        top: 10%;
+        left: 50%;
+        transform: translateX(-50%);
+        height: auto;
+
+        padding: 40px ;
+        background: white;
+        display: flex;
+
+        .product-img {
+            width: 400px;
+            height: auto;
+
+            img {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        .content {
+            h2 {
+                color: $midBlueColor;
+                font-weight: 500;
+            }
+
+            .price {
+                .new-price {
+                    font-weight: 500;
+                    padding-block: 15px;
+                    font-size: 25px;
+                }
+
+                border-bottom: 1px solid rgba(225, 225, 225, .8);
+            }
+
+            .product-prop {
+                padding-block: 15px;
+
+                ul li {
+                    color: rgb(109, 108, 108);
+                    font-size: 14px;
+                    margin-left: 15px;
+                    padding-block: 3px;
+
+                }
+            }
+
+            .availability {
+                display: flex;
+                margin-bottom: 10px;
+                font-size: 14px;
+
+                .stock-num {
+                    padding-left: 15px;
+                    color: $primaryTxtColor;
+                }
+            }
+
+            .add-to-cart {
+                padding-block: 20px;
+                display: flex;
+                border-bottom: 1px solid rgba(225, 225, 225, .8);
+                height: 90px;
+
+                .quantity {
+                    position: relative;
+
+                    .input-text {
+                        text-align: center;
+                        width: 110px;
+                        height: 100%;
+                        padding: 13px 10px;
+                        font-size: 14px;
+                        outline: none;
+                        border-radius: 3px;
+                        border: 2px solid rgba(190, 190, 190, 0.521);
+                        &:focus{
+                        border: 2px solid $primaryTxtColor;
+
+                        }
+                    }
+                }
+
+                .btn {
+                    width: 100%;
+                    height: 100%;
+                    outline: none;
+                    border: none;
+                    color: white;
+                    margin-left: 10px;
+                    background: $primaryTxtColor;
+                    padding: auto;
+                    font-weight: bold;
+                    font-size: 13px;
+                    cursor: pointer;
+                    border-radius: 3px;
+
+                    &:hover {
+                        background: $hoverBtn;
+                    }
+                }
+            }
+
+            .product-meta {
+                display: flex;
+                flex-direction: column;
+                font-size: 15px;
+                padding-top: 20px;
+
+                .wrapper {
+                    margin-bottom: 8px;
+
+                    .title {
+                        color: rgba(0, 0, 0, 0.8);
+                        width: 80px;
+                        display: inline-block;
+                    }
+
+                    .prop {
+                        color: rgba(0, 0, 0, 0.6);
+
+                    }
+                }
+            }
+        }
+        .close-modal{
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            img{
+                width: 20px;
+                height: 20px;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+.show-modal{
+    display: block;
+}
+.fade-in-modal{
+    animation: showModal 0.3s ease-in-out forwards;
+}
+.fade-out-modal{
+    animation: hideModal 0.3s ease-in-out forwards;
+}
+@keyframes showModal {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+@keyframes hideModal {
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}

@@ -728,6 +728,180 @@ footer .footer_bottom .footer_bottom_content .footer_menu ul li:not(:last-child)
   border-right: 1px solid rgba(225, 225, 225, 0.1);
 }
 
+.quick-view-modal {
+  z-index: 9999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  transition: 0.3s ease-in-out;
+  display: none;
+  opacity: 0;
+}
+.quick-view-modal .modal-container {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  height: auto;
+  padding: 40px;
+  background: white;
+  display: flex;
+}
+.quick-view-modal .modal-container .product-img {
+  width: 400px;
+  height: auto;
+}
+.quick-view-modal .modal-container .product-img img {
+  width: 100%;
+  height: auto;
+}
+.quick-view-modal .modal-container .content h2 {
+  color: #0A6ECB;
+  font-weight: 500;
+}
+.quick-view-modal .modal-container .content .price {
+  border-bottom: 1px solid rgba(225, 225, 225, 0.8);
+}
+.quick-view-modal .modal-container .content .price .new-price {
+  font-weight: 500;
+  padding-block: 15px;
+  font-size: 25px;
+}
+.quick-view-modal .modal-container .content .product-prop {
+  padding-block: 15px;
+}
+.quick-view-modal .modal-container .content .product-prop ul li {
+  color: rgb(109, 108, 108);
+  font-size: 14px;
+  margin-left: 15px;
+  padding-block: 3px;
+}
+.quick-view-modal .modal-container .content .availability {
+  display: flex;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+.quick-view-modal .modal-container .content .availability .stock-num {
+  padding-left: 15px;
+  color: #16BCDC;
+}
+.quick-view-modal .modal-container .content .add-to-cart {
+  padding-block: 20px;
+  display: flex;
+  border-bottom: 1px solid rgba(225, 225, 225, 0.8);
+  height: 90px;
+}
+.quick-view-modal .modal-container .content .add-to-cart .quantity {
+  position: relative;
+}
+.quick-view-modal .modal-container .content .add-to-cart .quantity .input-text {
+  text-align: center;
+  width: 110px;
+  height: 100%;
+  padding: 13px 10px;
+  font-size: 14px;
+  outline: none;
+  border-radius: 3px;
+  border: 2px solid rgba(190, 190, 190, 0.521);
+}
+.quick-view-modal .modal-container .content .add-to-cart .quantity .input-text:focus {
+  border: 2px solid #16BCDC;
+}
+.quick-view-modal .modal-container .content .add-to-cart .btn {
+  width: 100%;
+  height: 100%;
+  outline: none;
+  border: none;
+  color: white;
+  margin-left: 10px;
+  background: #16BCDC;
+  padding: auto;
+  font-weight: bold;
+  font-size: 13px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+.quick-view-modal .modal-container .content .add-to-cart .btn:hover {
+  background: #108aa2;
+}
+.quick-view-modal .modal-container .content .product-meta {
+  display: flex;
+  flex-direction: column;
+  font-size: 15px;
+  padding-top: 20px;
+}
+.quick-view-modal .modal-container .content .product-meta .wrapper {
+  margin-bottom: 8px;
+}
+.quick-view-modal .modal-container .content .product-meta .wrapper .title {
+  color: rgba(0, 0, 0, 0.8);
+  width: 80px;
+  display: inline-block;
+}
+.quick-view-modal .modal-container .content .product-meta .wrapper .prop {
+  color: rgba(0, 0, 0, 0.6);
+}
+.quick-view-modal .modal-container .close-modal {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+}
+.quick-view-modal .modal-container .close-modal img {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.show-modal {
+  display: block;
+}
+
+.fade-in-modal {
+  -webkit-animation: showModal 0.3s ease-in-out forwards;
+          animation: showModal 0.3s ease-in-out forwards;
+}
+
+.fade-out-modal {
+  -webkit-animation: hideModal 0.3s ease-in-out forwards;
+          animation: hideModal 0.3s ease-in-out forwards;
+}
+
+@-webkit-keyframes showModal {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes showModal {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes hideModal {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes hideModal {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 @media screen and (max-width: 1200px) {
   main .discount-products .products-container .card {
     min-height: 140px;
