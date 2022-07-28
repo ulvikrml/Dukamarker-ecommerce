@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wishlist | DukaMarket</title>
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+    <link rel="icon" href="./img/logo/logo-title.png">
+</head>
+
+<body>
+    <div class="quick-view-modal"></div>
+
+    <header>
+        <div class="header-top">
+            <div class="container">
+                <div class="logo">
+                    <a href="index.html">
+                        <img class="logo-img" alt="logo" src="./img/logo/logo.png">
+                    </a>
+                </div>
+                <div class="search-bar">
+                    <input type="text" placeholder="I'm shopping for ...">
+                    <div class="search-submit">
+                        <i class="fas fa-search submit-btn"></i>
+                    </div>
+                </div>
+                <div class="user-prop">
+                    <div class="box">
+                        <a href="#">
+                            <div class="left">
+                                <i class="far fa-user"></i>
+                            </div>
+                            <div class="right">
+                                <a class="title" href="#">Log in</li></a>
+                                <a class="link" href="#">My Account</a>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="box">
+                        <a href="wishlist.html">
+                            <div class="left">
+                                <i class="far fa-heart"></i>
+                            </div>
+                            <div class="right">
+                                <a class="title">Favorite</a>
+                                <a class="link" href="wishlist.html">My Wishlist</a>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="box">
+                        <a href="#">
+                            <div class="left">
+                                <i class="fas fa-shopping-basket"></i>
+                            </div>
+                            <div class="right">
+                                <a class="title" href="#">My Cart</a>
+                                <a class="link" href="#">$0.00</a>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header-bottom">
+            <div class="container">
+                <div class="menu">
+                    <a class="menu-link" href="index.html">HOME</a>
+                    <a class="menu-link" href="#">SHOP</a>
+                    <a class="menu-link" href="#">BLOG</a>
+                    <a class="menu-link" href="#">ABOUT US</a>
+                    <a class="menu-link" href="#">CONTACT US</a>
+                    <a class="menu-link" href="#">PURCHASE NOW</a>
+                </div>
+                <div class="add-text">
+                    <P>Spend $120 more and get free shipping!</P>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="wish-list-page">
+            <div class="page-head">
+                <div class="container">
+                    <div class="head-inner">
+                        <h1 class="page-title">Wishlist</h1>
+                        <div class="page-nav">
+                            <p>
+                                <a class="nav-link" href="index.html">Home</a>
+                                / Wishlist
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content">
+                <div class="container">
+                    <div class="entry-content">
+                        <table class="cart wishlist-table">
+                            <thead>
+                                <tr>
+                                    <th class="product-remove">
+                                    </th>
+                                    <th class="product-thumbnail"></th>
+                                    <th class="product-name">
+                                        <span class="nobr">
+                                            Product name </span>
+                                    </th>
+                                    <th class="product-price">
+                                        <span class="nobr">
+                                            Unit price </span>
+                                    </th>
+                                    <th class="product-stock-status">
+                                        <span class="nobr">
+                                            Stock status </span>
+                                    </th>
+                                    <th class="product-add-to-cart">
+                                        <span class="nobr">
+                                        </span>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody class="wishlist-items-wrapper">
+                                <tr class="data-row" id="yith-wcwl-row-496" data-row-id="496">
+                                    <td class="product-remove">
+                                        <div>
+                                            <a class="remove remove-from-wishlist" title="Remove this product">×</a>
+                                        </div>
+                                    </td>
+                                    <td class="product-thumbnail">
+                                        <img src="https://dukamarket.b-cdn.net/wp-content/uploads/2021/05/5-230x230.jpg"
+                                            class="product-img" alt="product-image" loading="lazy"> </a>
+                                    </td>
+                                    <td class="product-name">
+                                        <a href="#">Wireless Bluetooth Over-Ear Headphone </a>
+                                        <div class="view-box">
+                                            <!-- <i class="far fa-eye trendcard-add"> --> <span class="trendcard-add">view</span>
+                                        </div>
+                                    </td>
+                                    <td class="product-price">
+                                        <span class="proce-txt">$219.00</span>
+                                    </td>
+                                    <td class="product-stock-status">
+                                        <span class="wishlist-in-stock">In Stock</span>
+                                    </td>
+                                    <td class="product-add-to-cart">
+                                        <button class="trend-add">ADD TO CARD</button>
+                                    </td>
+                                </tr>
+                                <tr class="data-row" id="yith-wcwl-row-496" data-row-id="496">
+                                    <td class="product-remove">
+                                        <div>
+                                            <a class="remove remove-from-wishlist" title="Remove this product">×</a>
+                                        </div>
+                                    </td>
+                                    <td class="product-thumbnail">
+                                        <img src="https://dukamarket.b-cdn.net/wp-content/uploads/2021/05/5-230x230.jpg"
+                                            class="product-img" alt="" loading="lazy"> </a>
+                                    </td>
+                                    <td class="product-name">
+                                        <a href="#">Wireless Bluetooth Over-Ear Headphone </a>
+                                        <div class="view-box">
+                                            <!-- <i class="far fa-eye trendcard-add"> --> <span class="trendcard-add">view</span>
+                                        </div>
+                                    </td>
+                                    <td class="product-price">
+                                        <span class="proce-txt">$219.00</span>
+                                    </td>
+                                    <td class="product-stock-status">
+                                        <span class="wishlist-in-stock">In Stock</span>
+                                    </td>
+                                    <td class="product-add-to-cart">
+                                        <button class="trend-add">ADD TO CARD</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer_top">
+                <div class="footer_contact">
+                    <div class="contact_box">
+                        <div class="icon">
+                            <i class="fas fa-shipping-fast"></i>
+                        </div>
+                        <div class="content">
+                            <h5>FREE DELIVERY</h5>
+                            <p>For all orders over $120</p>
+                        </div>
+                    </div>
+                    <div class="contact_box">
+                        <div class="icon">
+                            <i class="far fa-credit-card"></i>
+                        </div>
+                        <div class="content">
+                            <h5>SAFE PAYMENT</h5>
+                            <p>If goods have problems</p>
+                        </div>
+                    </div>
+                    <div class="contact_box">
+                        <div class="icon">
+                            <i class="fas fa-hands-helping"></i>
+                        </div>
+                        <div class="content">
+                            <h5>24/7 HELP CENTER</h5>
+                            <p>24/7 Customer Support</p>
+                        </div>
+                    </div>
+                    <div class="contact_box">
+                        <div class="icon">
+                            <i class="fas fa-money-bill-alt"></i>
+                        </div>
+                        <div class="content">
+                            <h5>RETURN MONEY</h5>
+                            <p>If goods have problems</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer_content">
+                    <div class="content_box download_app">
+                        <div class="content">
+                            <h3>Download App</h3>
+                            <p>Dukamarket App is now available on App Store & Google Play.</p>
+                            <p>Get it now.</p>
+                        </div>
+                        <div class="download">
+                            <a class="mr-15" href="#"><img src="./img/footter/app-store.png" alt=""></a>
+                            <a href="#"><img src="./img/footter/google-play.png" alt=""></a>
+                        </div>
+                        <div class="links">
+                            <a style="background-color: #3c5b9b;" href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a style="background-color: #40c1df;" href="#"><i class="fab fa-twitter"></i></a>
+                            <a style="background-color: #c619b8;" href="#"><i class="fab fa-instagram"></i></a>
+                            <a style="background-color: #ed3c32;" href="#"><i class="fab fa-google-plus"></i></a>
+                            <a style="background-color: #eb8314;" href="#"><i class="fas fa-rss"></i></a>
+                            <a style="background-color: #c72982;" href="#"><i class="fab fa-dribbble"></i></a>
+                        </div>
+                    </div>
+                    <div class="content_box ml-30">
+                        <div class="content">
+                            <h3>Customer Care</h3>
+                            <ul>
+                                <a href="#">
+                                    <li class="link">New Customers</li>
+                                </a>
+                                <a href="#">
+                                    <li class="link">How to use My Account</li>
+                                </a>
+                                <a href="#">
+                                    <li class="link">Placing an Order</li>
+                                </a>
+                                <a href="#">
+                                    <li class="link">Payment Methods</li>
+                                </a>
+                                <a href="#">
+                                    <li class="link">Payment Ways</li>
+                                </a>
+                                <a href="#">
+                                    <li class="link">Problems with your Order</li>
+                                </a>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="content_box">
+                        <div class="content">
+                            <h3>Customer Service</h3>
+                            <ul>
+                                <a href="#">
+                                    <li class="link">Help Center</li>
+                                </a>
+                                <a href="#">
+                                    <li class="link">Contact Us</li>
+                                </a>
+                                <a href="#">
+                                    <li class="link">Report Abuse</li>
+                                </a>
+                                <a href="#">
+                                    <li class="link">Submit a Dispute</li>
+                                </a>
+                                <a href="#">
+                                    <li class="link">Policies & Rules</li>
+                                </a>
+                                <a href="#">
+                                    <li class="link">Online Returns Policy</li>
+                                </a>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="content_box sign_up">
+                        <div class="content">
+                            <h3>Sign Up To Newsletter</h3>
+                            <p>Join 60.000+ subscribers and get a new discount coupon</p>
+                            <p>on every Saturday.</p>
+                        </div>
+                        <div class="newsletter">
+                            <input type="text" placeholder="Enter your email">
+                            <button>SUBSCRIBE</button>
+                        </div>
+                        <div class="email_text">
+                            <p>By providing your email address, you agree to our
+                                <a href="#" class="link">Privacy Policy</a> and <a href="#" class="link">Terms of
+                                    Service.</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer_bottom">
+                <div class="footer_bottom_content">
+                    <div class="footer_menu">
+                        <ul>
+                            <li>ABOUT US</li>
+                            <li>CUSTOMER</li>
+                            <li>SERVICE</li>
+                            <li>PRIVACY POLICY</li>
+                            <li>SITE MAP</li>
+                            <li>ADVANCED SEARCH</li>
+                            <li>CONTACT US</li>
+                        </ul>
+                    </div>
+                    <div class="footer_payment">
+                        <img src="./img/footter/payment.png" alt="">
+                    </div>
+                    <div class="copyright">
+                        <span>Copyright © Github.com/ulvikrml. All rights reserved.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./main.js"></script>
+</body>
+
+</html>

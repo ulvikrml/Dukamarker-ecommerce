@@ -1,7 +1,7 @@
 let products = [
     {
         id: 1,
-        name: 'Iphone 11',
+        name: 'Iphone 11 64GB Violette',
         image: '12',
         star: 3,
         discount: false,
@@ -33,7 +33,7 @@ let products = [
     },
     {
         id: 4,
-        name: 'Iphone 12 Pro',
+        name: 'Iphone 12 Pro 256GB Gold',
         image: '14',
         star: 1,
         discount: false,
@@ -55,7 +55,7 @@ let products = [
     },
     {
         id: 6,
-        name: 'A80 Pro 4G',
+        name: 'A80 Pro 4G Unlimited',
         image: '29_1_1',
         star: 2,
         discount: false,
@@ -75,7 +75,7 @@ let products = [
     },
     {
         id: 8,
-        name: 'Iphone XR',
+        name: 'Iphone XR ',
         image: '13_1',
         star: 1,
         discount: false,
@@ -85,7 +85,7 @@ let products = [
     },
     {
         id: 9,
-        name: 'Iphone 13 Pro',
+        name: 'Iphone 13 Pro 128GB Gold',
         image: '14',
         star: 3,
         discount: false,
@@ -94,7 +94,6 @@ let products = [
         category: 'Smartphone'
     },
 ]
-
 const trendContainer = document.querySelector('.trend-products-swiper');
 products.forEach(element => {
     let data = document.createElement('div');
@@ -104,7 +103,6 @@ products.forEach(element => {
         <div class="card-disc">
             <span>-${element.discount_percent}%</span>
         </div>`  : ``;
-
     let oldPrice = element.discount ? `
     <span class="old-price">${element.old_price}</span>` : ``;
 
@@ -134,7 +132,7 @@ products.forEach(element => {
                 </div>
                 <div class="adds">
                   <div class="add-box quick-view-btn" data-id="${element.id - 1}"><i class="far fa-eye trendcard-add"></i></div>
-                  <div class="add-box"><i class="far fa-heart trendcard-add"></i></div>
+                  <div class="add-box add-to-wishlist" data-id="${element.id - 1}"><i class="far fa-heart trendcard-add"></i></div>
                </div>
             </div>
     `
@@ -142,7 +140,6 @@ products.forEach(element => {
 })
 
 const quickViewBtn = document.querySelectorAll('.quick-view-btn');
-
 quickViewBtn.forEach(element => {
     element.addEventListener('click', (e) => {
         const closest = e.target.closest(".quick-view-btn");
@@ -152,9 +149,6 @@ quickViewBtn.forEach(element => {
 })
 
 const viewModal = document.querySelector('.quick-view-modal');
-console.log(viewModal);
-
-// const closeModalBtn = document.querySelector('.closeBtn');
 const hideModal = () => {
     if (viewModal.classList.contains('fade-in-modal')) {
         viewModal.classList.remove('fade-in-modal');
@@ -170,7 +164,7 @@ const showViewModal = (data) => {
     viewModal.innerHTML = `
     <div class="quick-view-overlay"></div>
         <div class="modal-container">
-            <div class="product-img"><img src="./img/trend/${data.image}.jpg" alt="${data.category}"></div>
+            <div class="product-img"><img src="./img/trend/${data.image}.jpg" alt="${data.category}" draggable="false"></div>
             <div class="content">
                 <h2>${data.name}</h2>
                 <div class="price">
@@ -221,3 +215,22 @@ const showViewModal = (data) => {
     //     viewModal.classList.remove('fade-out-modal');
     // }
 }
+
+let wishList = [];
+
+const addToWishlistBtn = document.querySelectorAll('.add-to-wishlist');
+console.log(addToWishlistBtn);
+addToWishlistBtn.forEach(element => {
+    element.addEventListener('click', (e) => {
+        const closest = e.target.closest(".add-to-wishlist");
+        const product = products[closest.dataset.id];
+        const even = (element) => element == product;
+        const isActive = wishList.some(even);
+        isActive ? '' : wishList.push(product);
+        // wishList.map(data=>{
+        //     if(product != data){
+            //     }
+            // })
+        console.log(wishList);
+    })
+})

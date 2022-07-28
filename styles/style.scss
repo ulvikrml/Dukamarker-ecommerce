@@ -11,6 +11,7 @@
 @import './components/footer';
 @import './components/viewModal';
 @import './responsive';
+@import './pages/wishlist.scss';
 
 @mixin flexBetween($direction) {
     display: flex;
@@ -87,7 +88,6 @@ a {
 
 main {
     background: #F3F5F6;
-    padding-bottom: 60px;
 }
 
 @media screen and (min-width: 1400px) {
@@ -118,4 +118,22 @@ main {
     .container {
         width: 90%;
     }
+}
+
+/*    SCROLLBAR    */
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(136, 136, 136, .8);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(136, 136, 136, 1);
 }
