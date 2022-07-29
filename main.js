@@ -228,55 +228,35 @@ const showViewModal = (data) => {
 }
 
 
+
+// localStorage.setItem('wishList',JSON.stringify([]));
+let wishList = [];
+wishList = JSON.parse(localStorage.getItem('wishList'));
+
+
 //    ADD TO WISHLIST
 const addToWishlistBtn = document.querySelectorAll('.add-to-wishlist');
 addToWishlistBtn.forEach(element => {
     element.addEventListener('click', (e) => {
         const closest = e.target.closest(".add-to-wishlist");
         const product = products[closest.dataset.id];
-        const even = (element) => element == product;
+        const even = (element) => element.id == product.id;
+        wishList = wishList == null ? [] : wishList; 
         const isActive = wishList.some(even);
         isActive ? '' : wishList.push(product);
-        // wishList.map(data=>{
-        //     if(product != data){
+
+        // const isFound = wishList.some(element => {
+        //     if (product.id === element.id) {
+        //       return true;
         //     }
-        // })
+        //     return false;
+        //   });
+
         console.log(wishList);
+        localStorage.setItem('wishList',JSON.stringify(wishList));
     })
 })
 
-let wishList = [{
-    id: 8,
-    name: 'Iphone XR ',
-    image: '13_1',
-    star: 1,
-    discount: false,
-    current_price: '$89.99',
-    stock: 449,
-    category: 'Smartphone'
-},
-{
-    id: 9,
-    name: 'Iphone 13 Pro 128GB Gold',
-    image: '14',
-    star: 3,
-    discount: false,
-    current_price: '$149.00',
-    stock: 538,
-    category: 'Smartphone'
-},
-{
-    id: 3,
-    name: 'Blue G9 Pro 2020',
-    image: '1',
-    star: 2,
-    discount: false,
-    current_price: '$90.00',
-    stock: 446,
-    category: 'Smartphone'
-}
-];
-console.log(wishList);
 
 const wishlistItemContainer = document.querySelector('.wishlist-items-wrapper');
 const delItemWishlist = (arr) => {
@@ -289,6 +269,7 @@ const delItemWishlist = (arr) => {
             })
             wishlistItemContainer.innerHTML = ``;
             mapWishList(arr);
+            localStorage.setItem('wishList',JSON.stringify(arr));
         })
     })
 }
@@ -346,8 +327,11 @@ const mapWishList = (arr) => {
     }
     delItemWishlist(arr);
 }
-
+const localWish = JSON.parse(localStorage.getItem('wishList'))
 if (wishlistItemContainer) {
-    mapWishList(wishList);
+    mapWishList(localWish);
     // delItemWishlist();
 }
+
+// localStorage.setItem('wishList',wishList);
+console.log();
