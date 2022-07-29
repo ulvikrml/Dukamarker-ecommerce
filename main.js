@@ -94,19 +94,23 @@ let products = [
         category: 'Smartphone'
     },
 ]
+
+
+//   GET ELEMENTS TO TREND SECTION
 const trendContainer = document.querySelector('.trend-products-swiper');
-products.forEach(element => {
-    let data = document.createElement('div');
-    data.classList.add('swiper-slide');
-    element.discount ? data.classList.add('indiscount') : '';
-    let discount = element.discount ? `
+if (trendContainer) {
+    products.forEach(element => {
+        let data = document.createElement('div');
+        data.classList.add('swiper-slide');
+        element.discount ? data.classList.add('indiscount') : '';
+        let discount = element.discount ? `
         <div class="card-disc">
             <span>-${element.discount_percent}%</span>
         </div>`  : ``;
-    let oldPrice = element.discount ? `
-    <span class="old-price">${element.old_price}</span>` : ``;
+        let oldPrice = element.discount ? `
+        <span class="old-price">${element.old_price}</span>` : ``;
 
-    data.innerHTML = `
+        data.innerHTML = `
             <div class="swiper-slide">
                 <div class="card-photo">
                     <img src="img/trend/${element.image}.jpg" alt="${element.image}">
@@ -131,22 +135,29 @@ products.forEach(element => {
                     <button class="trend-add addToCartBtn">ADD TO CARD</button>
                 </div>
                 <div class="adds">
-                  <div class="add-box quick-view-btn" data-id="${element.id - 1}"><i class="far fa-eye trendcard-add"></i></div>
+                  <div class="add-box quick-view-btn" data-id="${element.id - 1}" onClick="quickView(event)"><i class="far fa-eye trendcard-add"></i></div>
                   <div class="add-box add-to-wishlist" data-id="${element.id - 1}"><i class="far fa-heart trendcard-add"></i></div>
                </div>
             </div>
     `
-    trendContainer.appendChild(data);
-})
-
-const quickViewBtn = document.querySelectorAll('.quick-view-btn');
-quickViewBtn.forEach(element => {
-    element.addEventListener('click', (e) => {
-        const closest = e.target.closest(".quick-view-btn");
-        console.log(products[closest.dataset.id]);
-        showViewModal(products[closest.dataset.id])
+        trendContainer.appendChild(data);
     })
-})
+}
+
+// const quickViewBtn = document.querySelectorAll('.quick-view-btn');
+// quickViewBtn.forEach(element => {
+//     element.addEventListener('click', (e) => {
+//     })
+// })
+        
+//   QUICK VIEW SECTION
+const quickView = (e) => {
+    console.log(e);
+    console.log(e.target);
+    const closest = e.target.closest(".quick-view-btn");
+    console.log(products[closest.dataset.id]);
+    showViewModal(products[closest.dataset.id])
+}
 
 const viewModal = document.querySelector('.quick-view-modal');
 const hideModal = () => {
@@ -154,10 +165,10 @@ const hideModal = () => {
         viewModal.classList.remove('fade-in-modal');
     }
     viewModal.classList.add('fade-out-modal');
-    setTimeout(()=>{
+    setTimeout(() => {
         viewModal.classList.remove('show-modal');
         viewModal.classList.remove('fade-out-modal');
-    },400)
+    }, 400)
 }
 
 const showViewModal = (data) => {
@@ -216,10 +227,9 @@ const showViewModal = (data) => {
     // }
 }
 
-let wishList = [];
 
+//    ADD TO WISHLIST
 const addToWishlistBtn = document.querySelectorAll('.add-to-wishlist');
-console.log(addToWishlistBtn);
 addToWishlistBtn.forEach(element => {
     element.addEventListener('click', (e) => {
         const closest = e.target.closest(".add-to-wishlist");
@@ -229,8 +239,115 @@ addToWishlistBtn.forEach(element => {
         isActive ? '' : wishList.push(product);
         // wishList.map(data=>{
         //     if(product != data){
-            //     }
-            // })
+        //     }
+        // })
         console.log(wishList);
     })
 })
+
+let wishList = [{
+    id: 8,
+    name: 'Iphone XR ',
+    image: '13_1',
+    star: 1,
+    discount: false,
+    current_price: '$89.99',
+    stock: 449,
+    category: 'Smartphone'
+},
+{
+    id: 9,
+    name: 'Iphone 13 Pro 128GB Gold',
+    image: '14',
+    star: 3,
+    discount: false,
+    current_price: '$149.00',
+    stock: 538,
+    category: 'Smartphone'
+},
+{
+    id: 3,
+    name: 'Blue G9 Pro 2020',
+    image: '1',
+    star: 2,
+    discount: false,
+    current_price: '$90.00',
+    stock: 446,
+    category: 'Smartphone'
+}
+];
+console.log(wishList);
+
+const wishlistItemContainer = document.querySelector('.wishlist-items-wrapper');
+const delItemWishlist = (arr) => {
+    const delBtns = document.querySelectorAll('.remove-from-wishlist');
+    delBtns.forEach(element => {
+        element.addEventListener('click', () => {
+            const elementIndex = element.dataset.index;
+            arr = arr.filter(function (item) {
+                return item !== arr[elementIndex]
+            })
+            wishlistItemContainer.innerHTML = ``;
+            mapWishList(arr);
+        })
+    })
+}
+
+const mapWishList = (arr) => {
+    if (arr.length > 0) {
+
+        arr.map((element, index) => {
+            let data = document.createElement('tr');
+            data.classList.add('data-row');
+            // element.discount ? data.classList.add('indiscount') : '';
+            // let discount = element.discount ? `
+            //     <div class="card-disc">
+            //         <span>-${element.discount_percent}%</span>
+            //     </div>`  : ``;
+            // let oldPrice = element.discount ? `
+            //     <span class="old-price">${element.old_price}</span>` : ``;
+
+            data.innerHTML = `
+    <td class="product-remove">
+    <div>
+    <a class="remove remove-from-wishlist" data-index="${index}" title="Remove this product">×</a>
+    </div>
+    </td>
+    <td class="product-thumbnail">
+    <img src="./img/trend/${element.image}.jpg"
+    class="product-img" alt="product-image" loading="lazy"> </a>
+    </td>
+    <td class="product-name">
+    <a href="#">${element.name}</a>
+    <div class="view-box quick-view-btn" data-id="${element.id - 1}" onClick="quickView(event)">
+    <span class="trendcard-add">view</span>
+    </div>
+    </td>
+    <td class="product-price">
+    <span class="proce-txt">${element.current_price}</span>
+    </td>
+    <td class="product-stock-status">
+    <span class="wishlist-in-stock">${element.stock > 0 ? 'In stock' : 'Not in stock'}</span>
+    </td>
+    <td class="product-add-to-cart">
+    <button class="trend-add">ADD TO CARD</button>
+    </td>
+    `
+            wishlistItemContainer.appendChild(data);
+        })
+    }
+    else {
+        let data = document.createElement('p');
+        data.classList.add('data-row');
+        data.classList.add('empty-text');
+        data.innerHTML = `No products added to the wishlist`
+        wishlistItemContainer.appendChild(data);
+        wishlistItemContainer.style.height = '200px'
+    }
+    delItemWishlist(arr);
+}
+
+if (wishlistItemContainer) {
+    mapWishList(wishList);
+    // delItemWishlist();
+}

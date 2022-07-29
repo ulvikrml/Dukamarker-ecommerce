@@ -978,7 +978,7 @@ main .wish-list-page .content .entry-content .wishlist-table .product-name {
   width: 20%;
 }
 main .wish-list-page .content .entry-content .wishlist-table thead {
-  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(225, 225, 225, 0.5);
 }
 main .wish-list-page .content .entry-content .wishlist-table thead th {
   text-transform: uppercase;
@@ -1069,6 +1069,10 @@ main .wish-list-page .content .entry-content .wishlist-table tbody .data-row .pr
 }
 main .wish-list-page .content .entry-content .wishlist-table tbody .data-row td {
   padding-block: 15px;
+}
+main .wish-list-page .content .entry-content .wishlist-table tbody .empty-text {
+  font-size: 18px;
+  padding-top: 30px;
 }
 
 * {
