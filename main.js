@@ -95,7 +95,6 @@ let products = [
     },
 ]
 
-
 //   GET ELEMENTS TO TREND SECTION
 const trendContainer = document.querySelector('.trend-products-swiper');
 if (trendContainer) {
@@ -135,8 +134,8 @@ if (trendContainer) {
                     <button class="trend-add addToCartBtn">ADD TO CARD</button>
                 </div>
                 <div class="adds">
-                  <div class="add-box quick-view-btn" data-id="${element.id - 1}" onClick="quickView(event)"><i class="far fa-eye trendcard-add"></i></div>
-                  <div class="add-box add-to-wishlist" data-id="${element.id - 1}"><i class="far fa-heart trendcard-add"></i></div>
+                  <div class="add-box quick-view-btn" data-id="${element.id}" onClick="quickView(event)"><i class="far fa-eye trendcard-add"></i></div>
+                  <div class="add-box add-to-wishlist" data-id="${element.id}"><i class="far fa-heart trendcard-add"></i></div>
                </div>
             </div>
     `
@@ -144,19 +143,15 @@ if (trendContainer) {
     })
 }
 
-// const quickViewBtn = document.querySelectorAll('.quick-view-btn');
-// quickViewBtn.forEach(element => {
-//     element.addEventListener('click', (e) => {
-//     })
-// })
-        
+
 //   QUICK VIEW SECTION
 const quickView = (e) => {
     console.log(e);
     console.log(e.target);
     const closest = e.target.closest(".quick-view-btn");
     console.log(products[closest.dataset.id]);
-    showViewModal(products[closest.dataset.id])
+    const product = products.find((item) => item.id == closest.dataset.id);
+    showViewModal(product)
 }
 
 const viewModal = document.querySelector('.quick-view-modal');
@@ -229,35 +224,29 @@ const showViewModal = (data) => {
 
 
 
-// localStorage.setItem('wishList',JSON.stringify([]));
+//     WISHLIST
 let wishList = [];
 wishList = JSON.parse(localStorage.getItem('wishList'));
 
-
-//    ADD TO WISHLIST
+//    adding to wishlist
 const addToWishlistBtn = document.querySelectorAll('.add-to-wishlist');
 addToWishlistBtn.forEach(element => {
     element.addEventListener('click', (e) => {
         const closest = e.target.closest(".add-to-wishlist");
-        const product = products[closest.dataset.id];
+        // const product = products[closest.dataset.id];
+        const product = products.find((item) => item.id == closest.dataset.id);
         const even = (element) => element.id == product.id;
-        wishList = wishList == null ? [] : wishList; 
+        wishList = wishList[0] == null ? [] : wishList;
         const isActive = wishList.some(even);
         isActive ? '' : wishList.push(product);
-
-        // const isFound = wishList.some(element => {
-        //     if (product.id === element.id) {
-        //       return true;
-        //     }
-        //     return false;
-        //   });
-
+        // console.log(wishList);
+        localStorage.setItem('wishList', JSON.stringify(wishList));
+        updateWishlistCount(wishList.length);
         console.log(wishList);
-        localStorage.setItem('wishList',JSON.stringify(wishList));
     })
 })
 
-
+//    Deleting items from wislist
 const wishlistItemContainer = document.querySelector('.wishlist-items-wrapper');
 const delItemWishlist = (arr) => {
     const delBtns = document.querySelectorAll('.remove-from-wishlist');
@@ -269,11 +258,13 @@ const delItemWishlist = (arr) => {
             })
             wishlistItemContainer.innerHTML = ``;
             mapWishList(arr);
-            localStorage.setItem('wishList',JSON.stringify(arr));
+            localStorage.setItem('wishList', JSON.stringify(arr));
+            updateWishlistCount(arr.length);
         })
     })
 }
 
+//    Mapping items from wishlist
 const mapWishList = (arr) => {
     if (arr.length > 0) {
 
@@ -327,11 +318,13 @@ const mapWishList = (arr) => {
     }
     delItemWishlist(arr);
 }
-const localWish = JSON.parse(localStorage.getItem('wishList'))
+const localWishList = JSON.parse(localStorage.getItem('wishList'))
 if (wishlistItemContainer) {
-    mapWishList(localWish);
-    // delItemWishlist();
+    mapWishList(localWishList);
 }
 
-// localStorage.setItem('wishList',wishList);
-console.log();
+const countWishList = document.querySelector('.wishlist-count');
+const updateWishlistCount = (count) => {
+    countWishList.innerHTML = count;
+}
+updateWishlistCount(wishList.length);

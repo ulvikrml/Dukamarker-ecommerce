@@ -63,7 +63,28 @@ header {
                             margin-right: 10px;
                         }
                     }
-
+                    .count-box{
+                        position: relative;
+                        .circle{
+                            position: absolute;
+                            top: -7px;
+                            left: 20px;
+                            background-color: #16BCDC;
+                            border-radius: 50%;
+                            min-width: 20px;
+                            min-height: 20px;
+                            font-size: 11px;
+                            color: white;
+                            align-items: center;
+                            padding: auto;
+                            .count{
+                                position: absolute;
+                                top: 50%;
+                                left: 50%;
+                                transform: translate(-50%, -50%);
+                            }
+                        }
+                    }
                     .right {
                         display: flex;
                         flex-direction: column;
