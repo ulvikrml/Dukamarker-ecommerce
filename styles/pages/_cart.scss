@@ -1,49 +1,11 @@
 main {
-    
-    .page-head {
-        width: 100%;
-        height: 330px;
-        background-image: url('../../img/page-head/head-cart.jpg');
-        position: relative;
-
-        .head-inner {
-            margin: auto;
-            position: absolute;
-            top: 45%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-
-            .page-title {
-                color: white;
-                font-size: 58px;
-                font-weight: 400;
-            }
-
-            .page-nav {
-                font-size: 16px;
-                color: white;
-
-                .nav-link {
-                    color: #999;
-                    transition: 0.3s ease;
-
-                    &:hover {
-                        color: $secondTxtColor;
-                    }
-                }
-            }
-        }
-    }
-    .wish-list-page {
-
-
+    .cart-page {
         .content {
             padding: 50px 0px;
             background: white;
 
             .entry-content {
-                .wishlist-table {
+                .cart-table {
                     width: 100%;
                     border-collapse: collapse;
                     border-spacing: 0;
@@ -70,6 +32,7 @@ main {
                                 font-size: 14px;
                             }
                         }
+
                         border-bottom: 1px solid rgba(225, 225, 225, 0.5);
                     }
 
@@ -77,12 +40,13 @@ main {
                         .data-row {
                             border-top: 1px solid rgba(225, 225, 225, 0.5);
 
-                            .product-remove{
-                                .remove{
+                            .product-remove {
+                                .remove {
                                     font-size: 27px;
                                     font-weight: 100;
                                     cursor: pointer;
-                                    &:hover{
+
+                                    &:hover {
                                         color: $secondTxtColor;
                                     }
                                 }
@@ -104,7 +68,8 @@ main {
                                     margin-block: 10px;
                                     color: $midBlueColor;
                                     transition: 0.3s ease;
-                                    &:hover{
+
+                                    &:hover {
                                         color: $secondTxtColor;
                                     }
                                 }
@@ -141,49 +106,81 @@ main {
                             }
 
                             .product-price {
-                                .proce-txt {
+                                .price-txt {
                                     font-weight: 500;
                                 }
                             }
 
-                            .product-stock-status {
-                                .wishlist-in-stock {
-                                    color: $primaryTxtColor;
-                                    font-size: 15px;
-                                }
-                            }
+                            .product-quantity {
+                                .quantity-input {
+                                    position: relative;
+                                    width: 90px;
+                                    margin: auto;
 
-                            .product-add-to-cart {
-                                width: 20%;
-                                .trend-add {
-                                    outline: none;
-                                    border: none;
-                                    color: black;
-                                    background: $secondTxtColor;
-                                    padding: 16px 45px;
-                                    font-weight: 500;
-                                    font-size: 14px;
-                                    margin-top: 20px;
-                                    cursor: pointer;
-                                    transition: .3s ease-in-out;
+                                    .input-text {
+                                        text-align: center;
+                                        width: 100%;
+                                        height: 100%;
+                                        padding: 13px 20px 13px 6px;
+                                        font-size: 14px;
+                                        outline: none;
+                                        border-radius: 3px;
+                                        border: 2px solid rgba(190, 190, 190, 0.521);
 
+                                        &:focus {
+                                            border: 2px solid $secondTxtColor;
 
-                                    &:hover {
-                                        background: $secondBgColor;
+                                        }
+
+                                        &::-webkit-outer-spin-button,
+                                        &::-webkit-inner-spin-button {
+                                            -webkit-appearance: none;
+                                            margin: 0;
+                                        }
                                     }
+
+                                    .input-arrow {
+                                        cursor: pointer;
+
+                                        &:hover {
+                                            color: $secondTxtColor;
+                                        }
+                                    }
+
+                                    .quantity-plus {
+                                        position: absolute;
+                                        right: 10px;
+                                        top: 5px;
+                                    }
+
+                                    .quantity-minus {
+                                        position: absolute;
+                                        right: 10px;
+                                        bottom: 5px;
+                                    }
+                                }
+                                input[type=number] {
+                                    -moz-appearance: textfield;
+                                  }
+                            }
+
+                            .product-subtotal {
+                                .nobr {
+                                    font-weight: 500;
                                 }
                             }
 
                             td {
                                 padding-block: 15px;
                             }
-                            
+
                         }
-                        .empty-text{
-                                font-size: 18px;
-                                // text-align: center;
-                                padding-top: 30px;
-                            }
+
+                        .empty-text {
+                            font-size: 18px;
+                            // text-align: center;
+                            padding-top: 30px;
+                        }
                     }
                 }
             }

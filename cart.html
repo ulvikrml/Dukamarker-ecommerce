@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wishlist | DukaMarket</title>
+    <title>Cart | DukaMarket</title>
     <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
         integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
@@ -86,17 +86,17 @@
             </div>
         </div>
     </header>
-
+    
     <main>
-        <div class="wish-list-page">
+        <div class="cart-page">
             <div class="page-head">
                 <div class="container">
                     <div class="head-inner">
-                        <h1 class="page-title">Wishlist</h1>
+                        <h1 class="page-title">Cart</h1>
                         <div class="page-nav">
                             <p>
                                 <a class="nav-link" href="index.html">Home</a>
-                                / Wishlist
+                                / Cart
                             </p>
                         </div>
                     </div>
@@ -105,7 +105,7 @@
             <div class="content">
                 <div class="container">
                     <div class="entry-content">
-                        <table class="cart wishlist-table">
+                        <table class="cart cart-table">
                             <thead>
                                 <tr>
                                     <th class="product-remove">
@@ -117,45 +117,48 @@
                                     </th>
                                     <th class="product-price">
                                         <span class="nobr">
-                                            Unit price </span>
+                                            Price </span>
                                     </th>
-                                    <th class="product-stock-status">
+                                    <th class="product-quantity">
                                         <span class="nobr">
-                                            Stock status </span>
+                                           Quantity </span>
                                     </th>
-                                    <th class="product-add-to-cart">
+                                    <th class="product-subtotal-price">
                                         <span class="nobr">
                                         </span>
                                     </th>
-                                </tr>
+                                  </tr>
                             </thead>
-                            <tbody class="wishlist-items-wrapper">
+                            <tbody class="cart-items-wrapper">
                                 <!-- <tr class="data-row">
+
                                     <td class="product-remove">
                                         <div>
-                                            <a class="remove remove-from-wishlist" title="Remove this product">×</a>
+                                            <a class="remove remove-from-wishlist" data-id="${element.id}" title="Remove this product">×</a>
                                         </div>
                                     </td>
                                     <td class="product-thumbnail">
-                                        <img src="./img/trend/1.jpg"
-                                            class="product-img" alt="product-image" loading="lazy"> </a>
+                                        <img src="./img/trend/${element.image}.jpg"
+                                        class="product-img" alt="product-image" loading="lazy"> </a>
                                     </td>
                                     <td class="product-name">
-                                        <a href="#">Wireless Bluetooth Over-Ear Headphone </a>
-                                        <div class="view-box">
+                                        <a href="#">${element.name}</a>
+                                        <div class="view-box quick-view-btn" data-id="${element.id}" onClick="quickView(event)">
                                             <span class="trendcard-add">view</span>
                                         </div>
                                     </td>
                                     <td class="product-price">
-                                        <span class="proce-txt">$219.00</span>
-                                    </td>
-                                    <td class="product-stock-status">
-                                        <span class="wishlist-in-stock">In Stock</span>
-                                    </td>
-                                    <td class="product-add-to-cart">
-                                        <button class="trend-add">ADD TO CARD</button>
-                                    </td>
-                                </tr> -->
+                                    <span class="price-txt">${element.current_price}</span>
+                                </td>
+                                <td class="product-quantity">
+                                    <div class="quantity-input">
+                                        <i class="fas fa-angle-up quantity-plus input-arrow" onClick="changeUnitsNumber("plus",'1')"></i>
+                                        <input type="number" class="input-text" step="1" min="1" max="${element.stock}" name="quantity" value="${element.numberOfUnits}"
+                                        size="3">
+                                        <i class="fas fa-angle-down quantity-minus input-arrow" onClick="changeUnitsNumber("minus",'1')"></i>
+                                    </div>
+                                </td>
+                            </tr> -->
                             </tbody>
                         </table>
                     </div>
@@ -163,7 +166,7 @@
             </div>
         </div>
     </main>
-
+    
     <footer>
         <div class="container">
             <div class="footer_top">
@@ -318,7 +321,9 @@
         </div>
     </footer>
 
-    <script src="./main.js"></script>
+     <script src="./main.js"></script>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script src="./swiper.js"></script>
 </body>
 
 </html>

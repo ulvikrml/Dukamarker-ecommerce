@@ -1,8 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&display=swap");
 header {
   background: #263C97;
-  z-index: 9999;
-  width: 100%;
 }
 header .header-top .container {
   display: flex;
@@ -954,13 +952,13 @@ footer .footer_bottom .footer_bottom_content .footer_menu ul li:not(:last-child)
     font-size: 20px;
   }
 }
-main .wish-list-page .page-head {
+main .page-head {
   width: 100%;
   height: 330px;
   background-image: url("../../img/page-head/head-cart.jpg");
   position: relative;
 }
-main .wish-list-page .page-head .head-inner {
+main .page-head .head-inner {
   margin: auto;
   position: absolute;
   top: 45%;
@@ -968,20 +966,20 @@ main .wish-list-page .page-head .head-inner {
   transform: translate(-50%, -50%);
   text-align: center;
 }
-main .wish-list-page .page-head .head-inner .page-title {
+main .page-head .head-inner .page-title {
   color: white;
   font-size: 58px;
   font-weight: 400;
 }
-main .wish-list-page .page-head .head-inner .page-nav {
+main .page-head .head-inner .page-nav {
   font-size: 16px;
   color: white;
 }
-main .wish-list-page .page-head .head-inner .page-nav .nav-link {
+main .page-head .head-inner .page-nav .nav-link {
   color: #999;
   transition: 0.3s ease;
 }
-main .wish-list-page .page-head .head-inner .page-nav .nav-link:hover {
+main .page-head .head-inner .page-nav .nav-link:hover {
   color: #FCBE00;
 }
 main .wish-list-page .content {
@@ -1095,6 +1093,143 @@ main .wish-list-page .content .entry-content .wishlist-table tbody .data-row td 
   padding-block: 15px;
 }
 main .wish-list-page .content .entry-content .wishlist-table tbody .empty-text {
+  font-size: 18px;
+  padding-top: 30px;
+}
+
+main .cart-page .content {
+  padding: 50px 0px;
+  background: white;
+}
+main .cart-page .content .entry-content .cart-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+main .cart-page .content .entry-content .cart-table th,
+main .cart-page .content .entry-content .cart-table td {
+  text-align: center;
+}
+main .cart-page .content .entry-content .cart-table .product-name {
+  text-align: left;
+  width: 20%;
+}
+main .cart-page .content .entry-content .cart-table thead {
+  border-bottom: 1px solid rgba(225, 225, 225, 0.5);
+}
+main .cart-page .content .entry-content .cart-table thead th {
+  text-transform: uppercase;
+  padding-bottom: 20px;
+}
+main .cart-page .content .entry-content .cart-table thead th span {
+  font-weight: 500;
+  font-size: 14px;
+}
+main .cart-page .content .entry-content .cart-table tbody .data-row {
+  border-top: 1px solid rgba(225, 225, 225, 0.5);
+}
+main .cart-page .content .entry-content .cart-table tbody .data-row .product-remove .remove {
+  font-size: 27px;
+  font-weight: 100;
+  cursor: pointer;
+}
+main .cart-page .content .entry-content .cart-table tbody .data-row .product-remove .remove:hover {
+  color: #FCBE00;
+}
+main .cart-page .content .entry-content .cart-table tbody .data-row .product-thumbnail img {
+  width: 100px;
+  height: auto;
+}
+main .cart-page .content .entry-content .cart-table tbody .data-row .product-name {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+main .cart-page .content .entry-content .cart-table tbody .data-row .product-name a {
+  margin-block: 10px;
+  color: #0A6ECB;
+  transition: 0.3s ease;
+}
+main .cart-page .content .entry-content .cart-table tbody .data-row .product-name a:hover {
+  color: #FCBE00;
+}
+main .cart-page .content .entry-content .cart-table tbody .data-row .product-name .view-box {
+  width: 35px;
+  height: 25px;
+  cursor: pointer;
+  background-color: rgba(225, 225, 225, 0.3);
+  display: inline-block;
+  margin-bottom: 7px;
+  position: relative;
+  transition: 0.3s ease-in-out;
+}
+main .cart-page .content .entry-content .cart-table tbody .data-row .product-name .view-box:hover {
+  background-color: #FCBE00;
+}
+main .cart-page .content .entry-content .cart-table tbody .data-row .product-name .view-box:hover .trendcard-add {
+  color: white !important;
+}
+main .cart-page .content .entry-content .cart-table tbody .data-row .product-name .view-box .trendcard-add {
+  margin-top: 0px;
+  opacity: 1;
+  position: absolute;
+  font-size: 13px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgba(0, 0, 0, 0.8);
+}
+main .cart-page .content .entry-content .cart-table tbody .data-row .product-price .price-txt {
+  font-weight: 500;
+}
+main .cart-page .content .entry-content .cart-table tbody .data-row .product-quantity .quantity-input {
+  position: relative;
+  width: 90px;
+  margin: auto;
+}
+main .cart-page .content .entry-content .cart-table tbody .data-row .product-quantity .quantity-input .input-text {
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  padding: 13px 20px 13px 6px;
+  font-size: 14px;
+  outline: none;
+  border-radius: 3px;
+  border: 2px solid rgba(190, 190, 190, 0.521);
+}
+main .cart-page .content .entry-content .cart-table tbody .data-row .product-quantity .quantity-input .input-text:focus {
+  border: 2px solid #FCBE00;
+}
+main .cart-page .content .entry-content .cart-table tbody .data-row .product-quantity .quantity-input .input-text::-webkit-outer-spin-button, main .cart-page .content .entry-content .cart-table tbody .data-row .product-quantity .quantity-input .input-text::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+main .cart-page .content .entry-content .cart-table tbody .data-row .product-quantity .quantity-input .input-arrow {
+  cursor: pointer;
+}
+main .cart-page .content .entry-content .cart-table tbody .data-row .product-quantity .quantity-input .input-arrow:hover {
+  color: #FCBE00;
+}
+main .cart-page .content .entry-content .cart-table tbody .data-row .product-quantity .quantity-input .quantity-plus {
+  position: absolute;
+  right: 10px;
+  top: 5px;
+}
+main .cart-page .content .entry-content .cart-table tbody .data-row .product-quantity .quantity-input .quantity-minus {
+  position: absolute;
+  right: 10px;
+  bottom: 5px;
+}
+main .cart-page .content .entry-content .cart-table tbody .data-row .product-quantity input[type=number] {
+  -moz-appearance: textfield;
+}
+main .cart-page .content .entry-content .cart-table tbody .data-row .product-subtotal .nobr {
+  font-weight: 500;
+}
+main .cart-page .content .entry-content .cart-table tbody .data-row td {
+  padding-block: 15px;
+}
+main .cart-page .content .entry-content .cart-table tbody .empty-text {
   font-size: 18px;
   padding-top: 30px;
 }

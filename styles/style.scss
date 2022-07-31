@@ -12,6 +12,7 @@
 @import './components/viewModal';
 @import './responsive';
 @import './pages/wishlist.scss';
+@import './pages/cart.scss';
 
 @mixin flexBetween($direction) {
     display: flex;
