@@ -1102,7 +1102,7 @@ main .cart-page .content {
   background: white;
 }
 main .cart-page .content .entry-content .cart-table {
-  width: 100%;
+  width: 70%;
   border-collapse: collapse;
   border-spacing: 0;
 }

@@ -325,7 +325,6 @@ const mapWishList = (arr) => {
     delItemWishlist(arr);
 }
 
-// const localWishList = JSON.parse(localStorage.getItem('wishList'))
 if (wishlistItemContainer) {
     mapWishList(wishList);
 }
@@ -340,7 +339,11 @@ updateWishlistCount(wishList.length);
 
 //     CART
 
-let cart = [{ ...products[0], numberOfUnits: 3 }];
+// let cart = [{ ...products[0], numberOfUnits: 3 }];
+let cart = [];
+cart = JSON.parse(localStorage.getItem('cart'));
+cart = cart == null ? [] : cart;
+cart = cart[0] == null ? [] : cart;
 
 //    Add to cart
 const addToCartBtns = document.querySelectorAll('.addToCartBtn');
@@ -362,7 +365,8 @@ addToCartBtns.forEach(btn => {
                 numberOfUnits: 1
             })
         }
-        console.log(cart);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        updateCartCount(cart.length);
     })
 })
 
@@ -387,7 +391,7 @@ const mapCart = (arr) => {
             data.innerHTML = `
     <td class="product-remove">
     <div>
-    <a class="remove remove-from-wishlist" data-id="${element.id}" title="Remove this product">×</a>
+    <a class="remove remove-from-cart" data-id="${element.id}" title="Remove this product">×</a>
     </div>
     </td>
     <td class="product-thumbnail">
@@ -420,13 +424,31 @@ const mapCart = (arr) => {
         data.classList.add('data-row');
         data.classList.add('empty-text');
         data.innerHTML = `No products added to the wishlist`;
-        wishlistItemContainer.appendChild(data);
-        wishlistItemContainer.style.height = '200px';
+        cartItemContainer.appendChild(data);
+        cartItemContainer.style.height = '200px';
     }
-    // delItemWishlist(arr);
+    delItemCart(arr);
 }
 
-// const productQuantityInput = document.querySelector('.input-text');
+const delItemCart = (arr) => {
+    const delBtns = document.querySelectorAll('.remove-from-cart');
+    delBtns.forEach(element => {
+        element.addEventListener('click', () => {
+            const closest = element.closest(".product-card");
+            console.log(closest);
+
+            const elementId = closest.dataset.id;
+            console.log(elementId);
+            arr = arr.filter(function (item) {
+                return item.id != elementId
+            })
+            mapCart(arr);
+            localStorage.setItem('cart', JSON.stringify(arr));
+            updateCartCount(arr.length);
+        })
+    })
+}
+
 const changeUnitsNumber = (action, id) => {
     cart = cart.map((item) => {
         let numberOfUnits = item.numberOfUnits;
@@ -434,11 +456,9 @@ const changeUnitsNumber = (action, id) => {
         if (item.id == id) {
             if (action == 'minus' && numberOfUnits > 1) {
                 numberOfUnits--;
-                console.log('a');
             }
             else if (action == 'plus' && numberOfUnits < item.stock) {
                 numberOfUnits++;
-                console.log('b');
             }
         }
 
@@ -450,6 +470,12 @@ const changeUnitsNumber = (action, id) => {
 
     mapCart(cart);
 };
+
+const countCart = document.querySelector('.addtocart-count');
+const updateCartCount = (count) => {
+    countCart.innerHTML = count;
+}
+updateCartCount(cart.length);
 
 if (cartItemContainer) {
     mapCart(cart);
