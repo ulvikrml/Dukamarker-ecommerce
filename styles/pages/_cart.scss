@@ -8,6 +8,7 @@ main {
                 display: flex;
                 flex-direction: row;
                 justify-content: space-between;
+
                 .cart-table {
                     width: 68%;
                     border-collapse: collapse;
@@ -65,7 +66,8 @@ main {
                             .product-name {
                                 display: flex;
                                 flex-direction: column;
-                                width: 100%;
+                                width: 90%;
+                                padding-top: 20%;
 
                                 a {
                                     margin-block: 10px;
@@ -162,9 +164,10 @@ main {
                                         bottom: 5px;
                                     }
                                 }
+
                                 input[type=number] {
                                     -moz-appearance: textfield;
-                                  }
+                                }
                             }
 
                             .product-subtotal {
@@ -186,19 +189,22 @@ main {
                         }
                     }
                 }
-                .cart-totals{
+
+                .cart-totals {
                     width: 28%;
-                    height: 300px;
+                    height: 250px;
                     background: #F5F5F5;
-                    .cart-totals-content{
+
+                    .cart-totals-content {
                         width: 100%;
-                        height: 100%;
                         padding: 30px 20px;
-                        h2{
+
+                        h2 {
                             font-weight: 500;
                             padding-bottom: 20px;
                         }
-                        .cart-total-text{
+
+                        .cart-total-text {
                             border-block: 1px solid rgba(225, 225, 225, 0.8);
                             padding-block: 20px;
                             display: flex;
@@ -206,6 +212,23 @@ main {
                             font-weight: 500;
                         }
 
+                        .proceed-btn {
+                            width: 100%;
+                            outline: none;
+                            border: none;
+                            color: black;
+                            background: $secondTxtColor;
+                            padding: 16px 45px;
+                            font-weight: 500;
+                            font-size: 14px;
+                            margin-top: 20px;
+                            cursor: pointer;
+                            transition: .3s ease-in-out;
+
+                            &:hover {
+                                background: $secondBgColor;
+                            }
+                        }
                     }
                 }
             }

@@ -156,6 +156,7 @@ main {
                             .product-add-to-cart {
                                 width: 20%;
                                 .trend-add {
+                                    width: 80%;
                                     outline: none;
                                     border: none;
                                     color: black;
@@ -178,6 +179,21 @@ main {
                                 padding-block: 15px;
                             }
                             
+                        }
+                        .indiscount {
+                            .new-price {
+                                font-weight: 500;
+                                color: #CC1414;
+                            }
+
+                            .old-price {
+                                display: inline-block;
+                                color: #a4a4a4;
+                                font-weight: 400 !important;
+                                font-size: 14px;
+                                margin-left: 5px;
+                                text-decoration: line-through;
+                            }
                         }
                         .empty-text{
                                 font-size: 18px;

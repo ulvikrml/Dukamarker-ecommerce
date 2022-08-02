@@ -7,13 +7,16 @@ footer {
             width: 100%;
             display: flex;
             justify-content: space-between;
+            flex-wrap: wrap;
             padding: 50px 10px 50px 40px;
             border-bottom: 1px solid rgba(225, 225, 225, .1);
+
 
             .contact_box {
                 display: flex;
                 align-items: center;
                 margin-right: 40px;
+                min-width: 200px;
 
                 .icon {
                     i {
@@ -71,11 +74,13 @@ footer {
                         }
                     }
                 }
+
                 width: 20%;
             }
 
             .download_app {
                 width: 30%;
+
                 .download {
                     margin: 25px 0px;
 
@@ -109,8 +114,10 @@ footer {
                 .newsletter {
                     display: flex;
                     margin: 30px 0px;
+                    width: 100%;
 
                     input {
+                        width: 100%;
                         border: none;
                         outline: none;
                         padding: 17px 40px 17px 22px;
@@ -165,9 +172,12 @@ footer {
 
             .footer_menu {
                 margin-bottom: 30px;
+                width: 100%;
 
                 ul {
                     display: flex;
+                    justify-content: center;
+                    flex-wrap: wrap;
 
                     li {
                         font-size: 13px;

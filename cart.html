@@ -12,6 +12,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
     <link rel="icon" href="./img/logo/logo-title.png">
+    <link rel="stylesheet" href="./node_modules/izitoast/dist/css/iziToast.min.css">
 </head>
 
 <body>
@@ -63,7 +64,7 @@
                             </div>
                             <div class="right">
                                 <a class="title">My Cart</a>
-                                <a class="link" href="cart.html">$0.00</a>
+                                <a class="link total-price-count" href="cart.html">$0.00</a>
                             </div>
                         </a>
                     </div>
@@ -167,9 +168,9 @@
                                 <h2>Cart Totals</h2>
                                 <p class="cart-total-text">
                                     <span>Total</span>
-                                    <span class="total-price">$15,000.00</span>
+                                    <span class="total-price">0.00</span>
                                 </p>
-                                <button class="proceed-to-chehckout">PROCEED TO CHECKOUT</button>
+                                <button class="proceed-btn">PROCEED TO CHECKOUT</button>
                             </div>
                         </div>
                     </div>
@@ -332,6 +333,7 @@
         </div>
     </footer>
 
+    <script src="./node_modules/izitoast/dist/js/iziToast.min.js"></script>
      <script src="./main.js"></script>
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
     <script src="./swiper.js"></script>

@@ -1,9 +1,88 @@
+@media screen and (min-width: 1400px) {
+    .container {
+        width: 85%;
+    }
+}
+
+@media screen and (max-width: 1400px) {
+    .container {
+        width: 1140px;
+    }
+}
+
 @media screen and (max-width: 1200px) {
+    .container {
+        width: 940px !important;
+    }
+
+    header {
+        .header-top {
+            .container {
+                flex-wrap: wrap;
+
+                // height: 100px;
+                .logo {
+                    width: 20%;
+                }
+
+                .user-prop {
+                    margin-left: auto;
+                    order: 2;
+                    // margin-right: 0;
+                }
+
+                .search-bar {
+                    width: 100%;
+                    order: 3;
+                    padding-top: 20px;
+
+                    input {
+                        width: 100%;
+
+                    }
+                }
+            }
+        }
+    }
+
+
     main {
+        .vip-products {
+            .container {
+                .vip-products-right {
+                    .row {
+                        .banner {
+                            h3 {
+                                .banner-title {
+                                    font-size: 20px;
+                                }
+
+                                .banner-txt {
+                                    font-size: 18px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
         .discount-products {
-            .products-container { 
+            .products-container {
                 .card {
                     min-height: 140px;
+                }
+            }
+        }
+    }
+
+    footer {
+        .footer_top {
+            .footer_contact {
+                padding: 50px 10px 20px 40px;
+
+                .contact_box {
+                    margin-bottom: 30px;
                 }
             }
         }
@@ -37,11 +116,231 @@
     }
 }
 
+@media screen and (max-width: 992px) {
+    .container {
+        width: 720px !important;
+    }
+
+    main {
+        .trend-products {
+            .productSwiper {
+                .swiper-wrapper {
+                    .swiper-slide {
+                        .adds {
+                            right: 22px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    footer {
+        .footer_top {
+            .footer_content {
+                flex-wrap: wrap;
+
+                .download_app {
+                    width: 100% !important;
+                    margin-bottom: 50px;
+                }
+
+                .content_box {
+                    margin-left: 0;
+                    width: 45%;
+                }
+
+                .sign_up {
+                    width: 60%;
+                    margin-top: 40px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        width: 95% !important;
+    }
+
+    main {
+        .vip-products {
+            .vip-products-left {
+                .vip-product-swiper {
+                    .swiper-wrapper {
+                        .swiper-slide {
+                            .content {
+                                .swiper-title {
+                                    font-size: 36px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .trend-products {
+            .productSwiper {
+                height: 400px;
+
+                .swiper-wrapper {
+                    .swiper-slide {
+                        width: 100%;
+                        height: 320px;
+                        padding-bottom: 15px;
+
+                        .card-photo {
+                            width: 170px;
+                            margin-inline: auto;
+                        }
+
+                        .adds {
+                            right: 0px;
+                        }
+
+                        &:hover {
+                            height: 375px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    footer {
+        .footer_top {
+            .footer_content {
+                flex-wrap: wrap;
+                flex-direction: column;
+
+                .content_box {
+                    margin-bottom: 40px;
+                }
+            }
+        }
+
+        .footer_bottom {
+            .footer_bottom_content {
+                .footer_menu {
+                    ul {
+                        li {
+                            margin-top: 15px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
 @media screen and (max-width: 592px) {
     main {
         .headline {
             h3 {
                 font-size: 20px;
+            }
+        }
+
+        .vip-products {
+            .vip-products-left {
+                .vip-product-swiper {
+                    height: 270px;
+
+                    .swiper-wrapper {
+                        .swiper-slide {
+                            .content {
+                                padding: 30px 30px;
+
+                                .swiper-title {
+                                    font-size: 30px;
+                                }
+
+                                a {
+                                    width: 145px;
+                                    padding: 13px 25px;
+                                    font-size: 12px;
+
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .trend-products {
+            .productSwiper {
+                .swiper-wrapper {
+                    .swiper-slide {
+                        height: 300px;
+                        .card-photo {
+                            width: 140px;
+                            margin-inline: auto;
+                        }
+
+                        &:hover {
+                            height: 335px;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
+    footer {
+        .footer_top {
+            .footer_content {
+
+                // .content_box{
+                //     margin-bottom: 40px;
+                //     width: 500px;
+                // }
+                .sign_up {
+                    width: 80%;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 420px) {
+    footer {
+        .footer_bottom {
+            .footer_bottom_content {
+                .footer_payment {
+                    margin-inline: auto;
+                    width: 90%;
+
+                    img {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 370px) {
+    main{
+        .trend-products {
+            .productSwiper {
+                margin-bottom: 50px;
+                overflow: hidden;
+                .swiper-wrapper {
+                    .swiper-slide {
+                        height: 345px;
+                        .card-photo {
+                            width: 60%;
+                            margin-inline: auto;
+                        }
+
+                        &:hover {
+                            height: 415px;
+                        }
+                    }
+                }
             }
         }
     }

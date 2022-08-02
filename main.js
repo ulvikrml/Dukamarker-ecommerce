@@ -146,10 +146,7 @@ if (trendContainer) {
 
 //   QUICK VIEW SECTION
 const quickView = (e) => {
-    console.log(e);
-    console.log(e.target);
     const closest = e.target.closest(".product-card");
-    console.log(products[closest.dataset.id]);
     const product = products.find((item) => item.id == closest.dataset.id);
     showViewModal(product)
 }
@@ -169,7 +166,7 @@ const hideModal = () => {
 const showViewModal = (data) => {
     viewModal.innerHTML = `
     <div class="quick-view-overlay"></div>
-        <div class="modal-container">
+        <div class="modal-container product-card" data-id=${data.id}>
             <div class="product-img"><img src="./img/trend/${data.image}.jpg" alt="${data.category}" draggable="false"></div>
             <div class="content">
                 <h2>${data.name}</h2>
@@ -189,10 +186,6 @@ const showViewModal = (data) => {
                     <p class="stock-num">${data.stock} in stock</p>
                 </div>
                 <div class="add-to-cart">
-                    <div class="quantity">
-                        <input type="number" class="input-text" step="1" min="1" max="${data.stock}" name="quantity" value="1"
-                            size="4">
-                    </div>
                     <button class="btn addToCartBtn">ADD TO CART</button>
                 </div>
                 <div class="product-meta">
@@ -217,11 +210,55 @@ const showViewModal = (data) => {
         `;
     viewModal.classList.add('show-modal');
     viewModal.classList.add('fade-in-modal');
-    // if (viewModal.classList.contains('fade-out-modal')) {
-    //     viewModal.classList.remove('fade-out-modal');
-    // }
+    addToCart();
 }
 
+const addToCart = () => {
+    const addToCartBtns = document.querySelectorAll('.addToCartBtn');
+    addToCartBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            if (!(btn.classList.contains('added'))) {
+                const closest = e.target.closest(".product-card");
+                const productId = closest.dataset.id;
+                const product = products.find(item => item.id == productId);
+                if (cart.some(item => item.id == productId)) {
+                    cart.forEach(item => {
+                        if (item.id == productId) {
+                            item.numberOfUnits = item.numberOfUnits + 1;
+                        }
+                    })
+                }
+                else {
+                    cart.push({
+                        ...product,
+                        numberOfUnits: 1
+                    })
+                }
+                localStorage.setItem('cart', JSON.stringify(cart));
+                updateCartCount(cart.length);
+                iziToast.success({
+                    title: 'Success',
+                    message: `${product.name} added to cart`,
+                    color: 'blue',
+                    titleSize: '15px',
+                    titleLineHeight: '1.4',
+                    messageSize: '15px',
+                    messageLineHeight: '1.4'
+                });
+                btn.innerHTML = 'VIEW CART';
+                btn.classList.add('added');
+            }
+            else {
+                btn.classList.remove('added');
+            }
+            btn.addEventListener('click', () => {
+                location.href = 'cart.html';
+            });
+            renderSubTotal();
+        })
+    })
+}
+addToCart();    
 
 
 //     WISHLIST
@@ -234,24 +271,39 @@ wishList = wishList[0] == null ? [] : wishList;
 const addToWishlistBtn = document.querySelectorAll('.add-to-wishlist');
 addToWishlistBtn.forEach(element => {
     element.addEventListener('click', (e) => {
-        const closest = e.target.closest(".swiper-slide");
+        const closest = e.target.closest(".product-card");
         const product = products.find((item) => item.id == closest.dataset.id);
         const even = (element) => element.id == product.id;
-        // wishList = wishList[0] == null ? [] : wishList;
         const isActive = wishList.some(even);
-        isActive ? '' : wishList.push(product);
-        localStorage.setItem('wishList', JSON.stringify(wishList));
-        updateWishlistCount(wishList.length);
-        console.log(wishList);
-        iziToast.success({
-            title: 'Success',
-            message: `${product.name} added to wishlist`,
-            color: 'yellow',
-            titleSize: '15px',
-            titleLineHeight: '1.4',
-            messageSize: '15px',
-            messageLineHeight: '1.4',
-        });
+        if(isActive){
+            iziToast.warning({
+                title: 'Warning',
+                message: `You have already added to wishlist`,
+                color: 'red',
+                titleSize: '15px',
+                titleLineHeight: '1.4',
+                messageSize: '15px',
+                messageLineHeight: '1.4',
+            });
+            console.log('a');
+        }
+        else{
+            wishList.push(product);
+            localStorage.setItem('wishList', JSON.stringify(wishList));
+            updateWishlistCount(wishList.length);
+            console.log(wishList);
+            iziToast.success({
+                title: 'Success',
+                message: `${product.name} added to wishlist`,
+                color: 'yellow',
+                titleSize: '15px',
+                titleLineHeight: '1.4',
+                messageSize: '15px',
+                messageLineHeight: '1.4',
+            });
+        }
+        element.style.pointerEvents = "none";
+        setTimeout(()=>{element.style.pointerEvents = "auto"},2000)
     })
 })
 
@@ -280,19 +332,16 @@ const delItemWishlist = (arr) => {
 //    Mapping items from wishlist
 const mapWishList = (arr) => {
     if (arr.length > 0) {
-
         arr.map((element, index) => {
             let data = document.createElement('tr');
             data.classList.add('data-row');
             data.classList.add('product-card');
             data.dataset.id = element.id
-            // element.discount ? data.classList.add('indiscount') : '';
-            // let discount = element.discount ? `
-            //     <div class="card-disc">
-            //         <span>-${element.discount_percent}%</span>
-            //     </div>`  : ``;
-            // let oldPrice = element.discount ? `
-            //     <span class="old-price">${element.old_price}</span>` : ``;
+            element.discount ? data.classList.add('indiscount') : '';
+            let discountPrice = element.discount ? 
+            `  <span class="new-price">${element.current_price}</span>
+                <span class="old-price">${element.old_price}</span>` : 
+                ` <span class="proce-txt">${element.current_price}</span>`;
 
             data.innerHTML = `
     <td class="product-remove">
@@ -306,18 +355,18 @@ const mapWishList = (arr) => {
     </td>
     <td class="product-name">
     <a href="#">${element.name}</a>
-    <div class="view-box quick-view-btn" data-id="${element.id - 1}" onClick="quickView(event)">
+    <div class="view-box quick-view-btn" onClick="quickView(event)">
     <span class="trendcard-add">view</span>
     </div>
     </td>
     <td class="product-price">
-    <span class="proce-txt">${element.current_price}</span>
+    ${discountPrice}
     </td>
     <td class="product-stock-status">
     <span class="wishlist-in-stock">${element.stock > 0 ? 'In stock' : 'Not in stock'}</span>
     </td>
     <td class="product-add-to-cart">
-    <button class="trend-add">ADD TO CARD</button>
+    <button class="trend-add addToCartBtn">ADD TO CART</button>
     </td>
     `
             wishlistItemContainer.appendChild(data);
@@ -332,6 +381,7 @@ const mapWishList = (arr) => {
         wishlistItemContainer.style.height = '200px'
     }
     delItemWishlist(arr);
+    addToCart();
 }
 
 if (wishlistItemContainer) {
@@ -356,68 +406,48 @@ cart = JSON.parse(localStorage.getItem('cart'));
 cart = cart == null ? [] : cart;
 cart = cart[0] == null ? [] : cart;
 
-//    Add to cart
-const addToCartBtns = document.querySelectorAll('.addToCartBtn');
-addToCartBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-        if(!(btn.classList.contains('added'))){
-            const closest = e.target.closest(".swiper-slide");
-            const productId = closest.dataset.id;
-            const product = products.find(item => item.id == productId);
-            if (cart.some(item => item.id == productId)) {
-                cart.forEach(item => {
-                    if (item.id == productId) {
-                        item.numberOfUnits = item.numberOfUnits + 1;
-                    }
-                })
-            }
-            else {
-                cart.push({
-                    ...product,
-                    numberOfUnits: 1
-                })
-            }
-            localStorage.setItem('cart', JSON.stringify(cart));
-            updateCartCount(cart.length);
-            iziToast.success({
-                title: 'Success',
-                message: `${product.name} added to cart`,
-                color: 'blue',
-                titleSize: '15px',
-                titleLineHeight: '1.4',
-                messageSize: '15px',
-                messageLineHeight: '1.4'
-            });
-            btn.innerHTML = 'VIEW CART';
-            btn.classList.add('added');
-        }
-        else{
-            btn.classList.remove('added');
-        }
-        btn.addEventListener('click', () => {
-            location.href = 'cart.html';
+const totalPriceCart = document.querySelector('.total-price-count');
+const updateCarHeaderPrice = (price) =>{
+    price = JSON.parse(localStorage.getItem('totalPrice'));
+    totalPriceCart.innerHTML = `$${price}`;
+}
+
+const totalPriceText = document.querySelector('.total-price');
+let subTotalPrice = 0;
+const renderSubTotal = () => {
+    const getTotalPrice = () =>{
+        let totalPrice = 0;
+        cart.forEach(el => {
+            totalPrice += el.current_price.slice(1, 8) * el.numberOfUnits;
         });
-    })
-})
+        
+        totalPrice = totalPrice.toFixed(2)
+        subTotalPrice = totalPrice;
+        
+        updateCarHeaderPrice(totalPrice);
+        localStorage.setItem('totalPrice', JSON.stringify(totalPrice));
+        return totalPrice
+    }
+    if(totalPriceText){
+        // getTotalPrice();
+        totalPriceText.innerHTML = `$${getTotalPrice()}`;
+    }
+    else{
+        getTotalPrice();
+
+    }
+    updateCarHeaderPrice(subTotalPrice);
+}
 
 const cartItemContainer = document.querySelector('.cart-items-wrapper');
 const mapCart = () => {
     cartItemContainer.innerHTML = ``;
     if (cart.length > 0) {
-
         cart.map((element) => {
             let data = document.createElement('tr');
             data.classList.add('data-row');
             data.classList.add('product-card');
             data.dataset.id = element.id;
-            // element.discount ? data.classList.add('indiscount') : '';
-            // let discount = element.discount ? `
-            //     <div class="card-disc">
-            //         <span>-${element.discount_percent}%</span>
-            //     </div>`  : ``;
-            // let oldPrice = element.discount ? `
-            //     <span class="old-price">${element.old_price}</span>` : ``;
-
             data.innerHTML = `
     <td class="product-remove">
     <div>
@@ -430,8 +460,6 @@ const mapCart = () => {
     </td>
     <td class="product-name">
     <a href="#">${element.name}</a>
-    <div class="view-box quick-view-btn" data-id="${element.id}" onClick="quickView(event)">
-    <span class="trendcard-add">view</span>
     </div>
     </td>
     <td class="product-price">
@@ -463,6 +491,7 @@ const mapCart = () => {
         cartItemContainer.style.height = '200px';
     }
     delItemCart();
+    renderSubTotal();
 }
 
 const delItemCart = () => {
@@ -508,6 +537,8 @@ const countCart = document.querySelector('.addtocart-count');
 const updateCartCount = (count) => {
     countCart.innerHTML = count;
 }
+
+updateCarHeaderPrice(subTotalPrice);
 updateCartCount(cart.length);
 
 if (cartItemContainer) {
