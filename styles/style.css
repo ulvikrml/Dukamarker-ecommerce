@@ -257,7 +257,6 @@ main .trend-products .productSwiper .swiper-wrapper .swiper-slide {
   background-color: white;
   border-radius: 20px;
   position: relative;
-  margin-right: 20px;
   transition: 0.1s ease-in-out;
   overflow: hidden;
 }
@@ -318,15 +317,17 @@ main .trend-products .productSwiper .swiper-wrapper .swiper-slide .addtocard {
   margin-left: 17px;
 }
 main .trend-products .productSwiper .swiper-wrapper .swiper-slide .addtocard .trend-add {
+  width: 82%;
+  height: 40px;
   outline: none;
   border: none;
   color: white;
   background: #16BCDC;
-  padding: 12px 30px;
   border-radius: 30px;
   font-weight: bold;
   font-size: 12px;
   margin-top: 20px;
+  margin-inline: auto;
   opacity: 0;
   cursor: pointer;
   transition: 0.3s ease-in-out;
@@ -754,7 +755,7 @@ footer .footer_bottom .footer_bottom_content .footer_menu ul li:not(:last-child)
 }
 
 .quick-view-modal {
-  z-index: 9999;
+  z-index: 999999;
   position: fixed;
   top: 0;
   left: 0;
@@ -1101,10 +1102,16 @@ main .cart-page .content {
   padding: 50px 0px;
   background: white;
 }
+main .cart-page .content .entry-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 main .cart-page .content .entry-content .cart-table {
-  width: 70%;
+  width: 68%;
   border-collapse: collapse;
   border-spacing: 0;
+  max-height: 50px;
 }
 main .cart-page .content .entry-content .cart-table th,
 main .cart-page .content .entry-content .cart-table td {
@@ -1232,6 +1239,27 @@ main .cart-page .content .entry-content .cart-table tbody .data-row td {
 main .cart-page .content .entry-content .cart-table tbody .empty-text {
   font-size: 18px;
   padding-top: 30px;
+}
+main .cart-page .content .entry-content .cart-totals {
+  width: 28%;
+  height: 300px;
+  background: #F5F5F5;
+}
+main .cart-page .content .entry-content .cart-totals .cart-totals-content {
+  width: 100%;
+  height: 100%;
+  padding: 30px 20px;
+}
+main .cart-page .content .entry-content .cart-totals .cart-totals-content h2 {
+  font-weight: 500;
+  padding-bottom: 20px;
+}
+main .cart-page .content .entry-content .cart-totals .cart-totals-content .cart-total-text {
+  border-block: 1px solid rgba(225, 225, 225, 0.8);
+  padding-block: 20px;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 500;
 }
 
 * {

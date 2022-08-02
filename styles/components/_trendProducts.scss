@@ -15,7 +15,7 @@ main{
                     background-color: white;
                     border-radius: 20px;
                     position: relative;
-                    margin-right: 20px;
+                    // margin-right: 20px;
                     transition: .1s ease-in-out;
                     overflow: hidden;
 
@@ -90,15 +90,18 @@ main{
                         margin-left: 17px;
 
                         .trend-add {
+                            width: 82%;
+                            height: 40px;
                             outline: none;
                             border: none;
                             color: white;
                             background: $primaryTxtColor;
-                            padding: 12px 30px;
+                            // padding: 12px 30px;
                             border-radius: 30px;
                             font-weight: bold;
                             font-size: 12px;
                             margin-top: 20px;
+                            margin-inline: auto;
                             opacity: 0;
                             cursor: pointer;
                             transition: .3s ease-in-out;

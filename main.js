@@ -243,6 +243,15 @@ addToWishlistBtn.forEach(element => {
         localStorage.setItem('wishList', JSON.stringify(wishList));
         updateWishlistCount(wishList.length);
         console.log(wishList);
+        iziToast.success({
+            title: 'Success',
+            message: `${product.name} added to wishlist`,
+            color: 'yellow',
+            titleSize: '15px',
+            titleLineHeight: '1.4',
+            messageSize: '15px',
+            messageLineHeight: '1.4',
+        });
     })
 })
 
@@ -337,6 +346,8 @@ updateWishlistCount(wishList.length);
 
 
 
+
+
 //     CART
 
 // let cart = [{ ...products[0], numberOfUnits: 3 }];
@@ -349,33 +360,52 @@ cart = cart[0] == null ? [] : cart;
 const addToCartBtns = document.querySelectorAll('.addToCartBtn');
 addToCartBtns.forEach(btn => {
     btn.addEventListener('click', (e) => {
-        const closest = e.target.closest(".swiper-slide");
-        const productId = closest.dataset.id;
-        const product = products.find(item => item.id == productId);
-        if (cart.some(item => item.id == productId)) {
-            cart.forEach(item => {
-                if (item.id == productId) {
-                    item.numberOfUnits = item.numberOfUnits + 1;
-                }
-            })
+        if(!(btn.classList.contains('added'))){
+            const closest = e.target.closest(".swiper-slide");
+            const productId = closest.dataset.id;
+            const product = products.find(item => item.id == productId);
+            if (cart.some(item => item.id == productId)) {
+                cart.forEach(item => {
+                    if (item.id == productId) {
+                        item.numberOfUnits = item.numberOfUnits + 1;
+                    }
+                })
+            }
+            else {
+                cart.push({
+                    ...product,
+                    numberOfUnits: 1
+                })
+            }
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartCount(cart.length);
+            iziToast.success({
+                title: 'Success',
+                message: `${product.name} added to cart`,
+                color: 'blue',
+                titleSize: '15px',
+                titleLineHeight: '1.4',
+                messageSize: '15px',
+                messageLineHeight: '1.4'
+            });
+            btn.innerHTML = 'VIEW CART';
+            btn.classList.add('added');
         }
-        else {
-            cart.push({
-                ...product,
-                numberOfUnits: 1
-            })
+        else{
+            btn.classList.remove('added');
         }
-        localStorage.setItem('cart', JSON.stringify(cart));
-        updateCartCount(cart.length);
+        btn.addEventListener('click', () => {
+            location.href = 'cart.html';
+        });
     })
 })
 
 const cartItemContainer = document.querySelector('.cart-items-wrapper');
-const mapCart = (arr) => {
+const mapCart = () => {
     cartItemContainer.innerHTML = ``;
-    if (arr.length > 0) {
+    if (cart.length > 0) {
 
-        arr.map((element) => {
+        cart.map((element) => {
             let data = document.createElement('tr');
             data.classList.add('data-row');
             data.classList.add('product-card');
@@ -415,6 +445,11 @@ const mapCart = (arr) => {
     <i class="fas fa-angle-down quantity-minus input-arrow" onClick="changeUnitsNumber('minus', ${element.id})"></i>
     </div>
     </td>
+    <td class="product-subtotal">
+    <span class="nobr">
+    $${(element.numberOfUnits * element.current_price.slice(1, 8)).toFixed(2)}
+    </span>
+    </td>
             `
             cartItemContainer.appendChild(data);
         })
@@ -427,24 +462,22 @@ const mapCart = (arr) => {
         cartItemContainer.appendChild(data);
         cartItemContainer.style.height = '200px';
     }
-    delItemCart(arr);
+    delItemCart();
 }
 
-const delItemCart = (arr) => {
+const delItemCart = () => {
     const delBtns = document.querySelectorAll('.remove-from-cart');
     delBtns.forEach(element => {
         element.addEventListener('click', () => {
             const closest = element.closest(".product-card");
-            console.log(closest);
-
             const elementId = closest.dataset.id;
-            console.log(elementId);
-            arr = arr.filter(function (item) {
+
+            cart = cart.filter(function (item) {
                 return item.id != elementId
             })
-            mapCart(arr);
-            localStorage.setItem('cart', JSON.stringify(arr));
-            updateCartCount(arr.length);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            mapCart();
+            updateCartCount(cart.length);
         })
     })
 }
@@ -467,7 +500,7 @@ const changeUnitsNumber = (action, id) => {
             numberOfUnits,
         };
     });
-
+    localStorage.setItem('cart', JSON.stringify(cart));
     mapCart(cart);
 };
 
@@ -478,5 +511,5 @@ const updateCartCount = (count) => {
 updateCartCount(cart.length);
 
 if (cartItemContainer) {
-    mapCart(cart);
+    mapCart();
 };
