@@ -2,190 +2,193 @@ footer {
     background: #1F2024;
     width: 100%;
 
-    .footer_top {
-        .footer_contact {
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            padding: 50px 10px 50px 40px;
-            border-bottom: 1px solid rgba(225, 225, 225, .1);
+    .container {
 
-
-            .contact_box {
+        .footer-top {
+            .footer-contact {
+                width: 100%;
                 display: flex;
-                align-items: center;
-                margin-right: 40px;
-                min-width: 200px;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                padding: 50px 10px 50px 40px;
+                border-bottom: 1px solid rgba(225, 225, 225, .1);
 
-                .icon {
-                    i {
-                        color: #16bcdc;
-                        font-size: 40px;
-                        margin-right: 20px;
+
+                .contact-box {
+                    display: flex;
+                    align-items: center;
+                    margin-right: 40px;
+                    min-width: 200px;
+
+                    .icon {
+                        i {
+                            color: #16bcdc;
+                            font-size: 40px;
+                            margin-right: 20px;
+                        }
                     }
-                }
 
-                .content {
-                    h5 {
-                        color: white;
-                        margin-bottom: 4px;
-                    }
+                    .content {
+                        h5 {
+                            color: white;
+                            margin-bottom: 4px;
+                        }
 
-                    p {
-                        color: rgba(225, 225, 225, .7);
-                        font-size: 14px;
+                        p {
+                            color: rgba(225, 225, 225, .7);
+                            font-size: 14px;
+                        }
                     }
                 }
             }
+
+            .footer-content {
+                width: 100%;
+                padding: 60px 0px;
+                display: flex;
+                justify-content: space-between;
+                border-bottom: 1px solid rgba(225, 225, 225, .1);
+
+                .content-box {
+                    .content {
+                        h3 {
+                            cursor: default;
+                            color: white;
+                            margin-bottom: 20px;
+                        }
+
+                        p {
+                            color: rgba(225, 225, 225, .5);
+                            font-size: 14px;
+                            margin-bottom: 5px;
+                        }
+
+                        ul li {
+                            color: rgba(225, 225, 225, .5);
+                            font-size: 14px;
+                            margin-bottom: 15px;
+                            list-style: none;
+                            transition: 0.3s ease;
+
+                            &:hover {
+                                padding-left: 10px;
+                                color: #16bcdc;
+                            }
+                        }
+                    }
+
+                    width: 20%;
+                }
+
+                .download-app {
+                    width: 30%;
+
+                    .download {
+                        margin: 25px 0px;
+
+                        img {
+                            max-width: 160px;
+                        }
+                    }
+
+                    .links {
+                        a {
+                            padding: 22px;
+                            display: inline-block;
+                            position: relative;
+                            border-radius: 3px;
+                            margin-right: 4px;
+
+                            i {
+                                color: white;
+                                position: absolute;
+                                top: 50%;
+                                left: 50%;
+                                transform: translate(-50%, -50%);
+                            }
+                        }
+                    }
+                }
+
+                .sign-up {
+                    width: 30%;
+
+                    .newsletter {
+                        display: flex;
+                        margin: 30px 0px;
+                        width: 100%;
+
+                        input {
+                            width: 100%;
+                            border: none;
+                            outline: none;
+                            padding: 17px 40px 17px 22px;
+
+                            &::placeholder {
+                                color: rgba(0, 0, 0, .4);
+                            }
+                        }
+
+                        button {
+                            background-color: #16bcdc;
+                            color: white;
+                            border: none;
+                            outline: none;
+                            font-size: 13px;
+                            font-weight: 700;
+                            padding: 17px 30px;
+                        }
+                    }
+
+                    .email-text {
+                        color: rgba(225, 225, 225, .3);
+                        font-size: 14px;
+
+                        a {
+                            font-style: italic;
+                            text-decoration: underline;
+                            color: rgba(225, 225, 225, .3);
+                        }
+                    }
+                }
+
+            }
+
         }
 
-        .footer_content {
-            width: 100%;
-            padding: 60px 0px;
-            display: flex;
-            justify-content: space-between;
-            border-bottom: 1px solid rgba(225, 225, 225, .1);
+        .footer-bottom {
+            .footer-bottom-content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                color: rgba(225, 225, 225, .5);
+                padding: 50px 0px;
 
-            .content_box {
-                .content {
-                    h3 {
-                        cursor: default;
-                        color: white;
-                        margin-bottom: 20px;
-                    }
-
-                    p {
-                        color: rgba(225, 225, 225, .5);
-                        font-size: 14px;
-                        margin-bottom: 5px;
-                    }
-
-                    ul li {
-                        color: rgba(225, 225, 225, .5);
-                        font-size: 14px;
-                        margin-bottom: 15px;
-                        list-style: none;
-                        transition: 0.3s ease;
-
-                        &:hover {
-                            padding-left: 10px;
-                            color: #16bcdc;
-                        }
-                    }
+                .copyright {
+                    font-size: 14px;
                 }
 
-                width: 20%;
-            }
-
-            .download_app {
-                width: 30%;
-
-                .download {
-                    margin: 25px 0px;
-
-                    img {
-                        max-width: 160px;
-                    }
+                .footer-payment {
+                    margin-bottom: 30px;
                 }
 
-                .links {
-                    a {
-                        padding: 22px;
-                        display: inline-block;
-                        position: relative;
-                        border-radius: 3px;
-                        margin-right: 4px;
-
-                        i {
-                            color: white;
-                            position: absolute;
-                            top: 50%;
-                            left: 50%;
-                            transform: translate(-50%, -50%);
-                        }
-                    }
-                }
-            }
-
-            .sign_up {
-                width: 30%;
-
-                .newsletter {
-                    display: flex;
-                    margin: 30px 0px;
+                .footer-menu {
+                    margin-bottom: 30px;
                     width: 100%;
 
-                    input {
-                        width: 100%;
-                        border: none;
-                        outline: none;
-                        padding: 17px 40px 17px 22px;
+                    ul {
+                        display: flex;
+                        justify-content: center;
+                        flex-wrap: wrap;
 
-                        &::placeholder {
-                            color: rgba(0, 0, 0, .4);
-                        }
-                    }
+                        li {
+                            font-size: 13px;
+                            display: inline-block;
+                            padding: 0px 20px;
 
-                    button {
-                        background-color: #16bcdc;
-                        color: white;
-                        border: none;
-                        outline: none;
-                        font-size: 13px;
-                        font-weight: 700;
-                        padding: 17px 30px;
-                    }
-                }
-
-                .email_text {
-                    color: rgba(225, 225, 225, .3);
-                    font-size: 14px;
-
-                    a {
-                        font-style: italic;
-                        text-decoration: underline;
-                        color: rgba(225, 225, 225, .3);
-                    }
-                }
-            }
-
-        }
-
-    }
-
-    .footer_bottom {
-        .footer_bottom_content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            color: rgba(225, 225, 225, .5);
-            padding: 50px 0px;
-
-            .copyright {
-                font-size: 14px;
-            }
-
-            .footer_payment {
-                margin-bottom: 30px;
-            }
-
-            .footer_menu {
-                margin-bottom: 30px;
-                width: 100%;
-
-                ul {
-                    display: flex;
-                    justify-content: center;
-                    flex-wrap: wrap;
-
-                    li {
-                        font-size: 13px;
-                        display: inline-block;
-                        padding: 0px 20px;
-
-                        &:not(:last-child) {
-                            border-right: 1px solid rgba(225, 225, 225, .1);
+                            &:not(:last-child) {
+                                border-right: 1px solid rgba(225, 225, 225, .1);
+                            }
                         }
                     }
                 }

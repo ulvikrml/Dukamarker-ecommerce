@@ -7,7 +7,8 @@ let products = [
         discount: false,
         current_price: '$88.00',
         stock: 329,
-        category: 'Smartphone'
+        category: 'Smartphone',
+        section: 'trend'
     },
     {
         id: 2,
@@ -19,7 +20,8 @@ let products = [
         old_price: '$104.99',
         discount_percent: 18,
         stock: 230,
-        category: 'Smartphone'
+        category: 'Smartphone',
+        section: 'trend'
     },
     {
         id: 3,
@@ -29,7 +31,8 @@ let products = [
         discount: false,
         current_price: '$90.00',
         stock: 446,
-        category: 'Smartphone'
+        category: 'Smartphone',
+        section: 'trend'
     },
     {
         id: 4,
@@ -39,7 +42,8 @@ let products = [
         discount: false,
         current_price: '$129.00',
         stock: 320,
-        category: 'Smartphone'
+        category: 'Smartphone',
+        section: 'trend'
     },
     {
         id: 5,
@@ -51,7 +55,8 @@ let products = [
         old_price: '$88.00',
         discount_percent: 30,
         stock: 857,
-        category: 'Smartphone'
+        category: 'Smartphone',
+        section: 'trend'
     },
     {
         id: 6,
@@ -61,7 +66,8 @@ let products = [
         discount: false,
         current_price: '$59.00',
         stock: 431,
-        category: 'Smartphone'
+        category: 'Smartphone',
+        section: 'trend'
     },
     {
         id: 7,
@@ -71,7 +77,8 @@ let products = [
         discount: false,
         current_price: '$59.99',
         stock: 675,
-        category: 'Smartphone'
+        category: 'Smartphone',
+        section: 'trend'
     },
     {
         id: 8,
@@ -81,7 +88,8 @@ let products = [
         discount: false,
         current_price: '$89.99',
         stock: 449,
-        category: 'Smartphone'
+        category: 'Smartphone',
+        section: 'trend'
     },
     {
         id: 9,
@@ -91,14 +99,124 @@ let products = [
         discount: false,
         current_price: '$149.00',
         stock: 538,
-        category: 'Smartphone'
+        category: 'Smartphone',
+        section: 'trend'
     },
+    {
+        id: 10,
+        name: 'iPad Pro 10.5-inch 64GB',
+        image: '2',
+        star: 5,
+        discount: false,
+        current_price: '$205.00',
+        stock: 1209,
+        category: 'Tablet',
+        section: 'recommend'
+    },
+    {
+        id: 11,
+        name: 'Wireless Over-Ear Headphone',
+        image: '5',
+        star: 4,
+        discount: false,
+        current_price: '$219.00',
+        stock: 824,
+        category: 'Headset',
+        section: 'recommend'
+    },
+    {
+        id: 12,
+        name: 'Oppo A9 128GB',
+        image: '3',
+        star: 4,
+        discount: false,
+        current_price: '$320.00',
+        stock: 446,
+        category: 'Smartphone',
+        section: 'recommend'
+    },
+    {
+        id: 13,
+        name: 'Solo3 Wireless On-Ear Headphone',
+        image: '6',
+        star: 4,
+        discount: true,
+        current_price: '$139.99',
+        old_price: '$184.99',
+        discount_percent: 20,
+        stock: 522,
+        category: 'Headset',
+        section: 'recommend'
+    },
+    {
+        id: 14,
+        name: 'Vifa Portable Wireless Speaker',
+        image: '11',
+        star: 4,
+        discount: false,
+        current_price: '$314.00',
+        stock: 304,
+        category: 'Speaker',
+        section: 'recommend'
+    },
+    {
+        id: 15,
+        name: 'Basic Ultralight Portable Day Pack',
+        image: '17',
+        star: 3,
+        discount: true,
+        current_price: '$64.00',
+        old_price: '$96.00',
+        discount_percent: 18,
+        stock: 126,
+        category: 'Backpack',
+        section: 'recommend'
+    },
+    {
+        id: 16,
+        name: 'Original XBOX One S Controller For PC',
+        image: '19',
+        star: 4,
+        discount: false,
+        current_price: '$235.00',
+        stock: 355,
+        category: 'Console',
+        section: 'recommend'
+    },
+    {
+        id: 17,
+        name: 'Watch Series 7 Stainless Steel Brand Gold',
+        image: '7-2',
+        star: 4,
+        discount: true,
+        current_price: '$404.99',
+        old_price: '$450.00',
+        discount_percent: 15,
+        stock: 158,
+        category: 'Watches',
+        section: 'recommend'
+    },
+    {
+        id: 18,
+        name: 'G951s Pink Stereo Gaming Headset',
+        image: '8',
+        star: 5,
+        discount: false,
+        current_price: '$82.00',
+        stock: 860,
+        category: 'Headset',
+        section: 'recommend'
+    }
 ]
 
 //   GET ELEMENTS TO TREND SECTION
 const trendContainer = document.querySelector('.trend-products-swiper');
+const recommendContainer = document.querySelector('.recommend-products-swiper');
+let trendProducts = products.filter(product => product.section == 'trend');
+let recommendProducts = products.filter(product => product.section == 'recommend');
+
 if (trendContainer) {
-    products.forEach(element => {
+    trendProducts.forEach(element => {
         let data = document.createElement('div');
         data.classList.add('swiper-slide');
         element.discount ? data.classList.add('indiscount') : '';
@@ -112,11 +230,11 @@ if (trendContainer) {
         data.innerHTML = `
             <div class="swiper-slide product-card" data-id="${element.id}">
                 <div class="card-photo">
-                    <img src="img/trend/${element.image}.jpg" alt="${element.image}">
+                    <img src="img/products/${element.image}.jpg" alt="${element.image}">
                 </div>
                 ${discount}
                 <div class="card-inform">
-                    <a href="#">${element.name}</a>
+                    <a href="">${element.name}</a>
                     <div class="stars">
                         <i class="far fa-star"></i>
                         <i class="far fa-star"></i>
@@ -140,6 +258,49 @@ if (trendContainer) {
             </div>
     `
         trendContainer.appendChild(data);
+    })
+    recommendProducts.forEach(element => {
+        let data = document.createElement('div');
+        data.classList.add('swiper-slide');
+        element.discount ? data.classList.add('indiscount') : '';
+        let discount = element.discount ? `
+        <div class="card-disc">
+            <span>-${element.discount_percent}%</span>
+        </div>`  : ``;
+        let oldPrice = element.discount ? `
+        <span class="old-price">${element.old_price}</span>` : ``;
+
+        data.innerHTML = `
+            <div class="swiper-slide product-card" data-id="${element.id}">
+                <div class="card-photo">
+                    <img src="img/products/${element.image}.jpg" alt="${element.image}">
+                </div>
+                ${discount}
+                <div class="card-inform">
+                    <a href="">${element.name}</a>
+                    <div class="stars">
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <span>(${element.star})</span>
+                    </div>
+                    <div class="price">
+                    <span class="new-price">${element.current_price}</span>
+                    ${oldPrice}
+                    </div>
+                </div>
+                <div class="addtocard">
+                    <button class="trend-add addToCartBtn">ADD TO CARD</button>
+                </div>
+                <div class="adds">
+                  <div class="add-box quick-view-btn" onClick="quickView(event)"><i class="far fa-eye trendcard-add"></i></div>
+                  <div class="add-box add-to-wishlist"><i class="far fa-heart trendcard-add"></i></div>
+               </div>
+            </div>
+    `
+        recommendContainer.appendChild(data);
     })
 }
 
@@ -167,7 +328,7 @@ const showViewModal = (data) => {
     viewModal.innerHTML = `
     <div class="quick-view-overlay"></div>
         <div class="modal-container product-card" data-id=${data.id}>
-            <div class="product-img"><img src="./img/trend/${data.image}.jpg" alt="${data.category}" draggable="false"></div>
+            <div class="product-img"><img src="./img/products/${data.image}.jpg" alt="${data.category}" draggable="false"></div>
             <div class="content">
                 <h2>${data.name}</h2>
                 <div class="price">
@@ -211,6 +372,14 @@ const showViewModal = (data) => {
     viewModal.classList.add('show-modal');
     viewModal.classList.add('fade-in-modal');
     addToCart();
+    overlayModal();
+}
+
+const overlayModal = ()=>{
+    const quickViewOverlay = document.querySelector('.quick-view-overlay');
+    quickViewOverlay.addEventListener('click',()=>{
+        hideModal();
+    })
 }
 
 const addToCart = () => {
@@ -258,7 +427,7 @@ const addToCart = () => {
         })
     })
 }
-addToCart();    
+addToCart();
 
 
 //     WISHLIST
@@ -275,7 +444,7 @@ addToWishlistBtn.forEach(element => {
         const product = products.find((item) => item.id == closest.dataset.id);
         const even = (element) => element.id == product.id;
         const isActive = wishList.some(even);
-        if(isActive){
+        if (isActive) {
             iziToast.warning({
                 title: 'Warning',
                 message: `You have already added to wishlist`,
@@ -287,7 +456,7 @@ addToWishlistBtn.forEach(element => {
             });
             console.log('a');
         }
-        else{
+        else {
             wishList.push(product);
             localStorage.setItem('wishList', JSON.stringify(wishList));
             updateWishlistCount(wishList.length);
@@ -303,7 +472,7 @@ addToWishlistBtn.forEach(element => {
             });
         }
         element.style.pointerEvents = "none";
-        setTimeout(()=>{element.style.pointerEvents = "auto"},2000)
+        setTimeout(() => { element.style.pointerEvents = "auto" }, 2000)
     })
 })
 
@@ -338,9 +507,9 @@ const mapWishList = (arr) => {
             data.classList.add('product-card');
             data.dataset.id = element.id
             element.discount ? data.classList.add('indiscount') : '';
-            let discountPrice = element.discount ? 
-            `  <span class="new-price">${element.current_price}</span>
-                <span class="old-price">${element.old_price}</span>` : 
+            let discountPrice = element.discount ?
+                `  <span class="new-price">${element.current_price}</span>
+                <span class="old-price">${element.old_price}</span>` :
                 ` <span class="proce-txt">${element.current_price}</span>`;
 
             data.innerHTML = `
@@ -350,11 +519,11 @@ const mapWishList = (arr) => {
     </div>
     </td>
     <td class="product-thumbnail">
-    <img src="./img/trend/${element.image}.jpg"
+    <img src="./img/products/${element.image}.jpg"
     class="product-img" alt="product-image" loading="lazy"> </a>
     </td>
     <td class="product-name">
-    <a href="#">${element.name}</a>
+    <a href="">${element.name}</a>
     <div class="view-box quick-view-btn" onClick="quickView(event)">
     <span class="trendcard-add">view</span>
     </div>
@@ -407,7 +576,7 @@ cart = cart == null ? [] : cart;
 cart = cart[0] == null ? [] : cart;
 
 const totalPriceCart = document.querySelector('.total-price-count');
-const updateCarHeaderPrice = (price) =>{
+const updateCarHeaderPrice = (price) => {
     price = JSON.parse(localStorage.getItem('totalPrice'));
     totalPriceCart.innerHTML = `$${price}`;
 }
@@ -415,24 +584,24 @@ const updateCarHeaderPrice = (price) =>{
 const totalPriceText = document.querySelector('.total-price');
 let subTotalPrice = 0;
 const renderSubTotal = () => {
-    const getTotalPrice = () =>{
+    const getTotalPrice = () => {
         let totalPrice = 0;
         cart.forEach(el => {
             totalPrice += el.current_price.slice(1, 8) * el.numberOfUnits;
         });
-        
+
         totalPrice = totalPrice.toFixed(2)
         subTotalPrice = totalPrice;
-        
+
         updateCarHeaderPrice(totalPrice);
         localStorage.setItem('totalPrice', JSON.stringify(totalPrice));
         return totalPrice
     }
-    if(totalPriceText){
+    if (totalPriceText) {
         // getTotalPrice();
         totalPriceText.innerHTML = `$${getTotalPrice()}`;
     }
-    else{
+    else {
         getTotalPrice();
 
     }
@@ -455,11 +624,11 @@ const mapCart = () => {
     </div>
     </td>
     <td class="product-thumbnail">
-    <img src="./img/trend/${element.image}.jpg"
+    <img src="./img/products/${element.image}.jpg"
     class="product-img" alt="product-image" loading="lazy"> </a>
     </td>
     <td class="product-name">
-    <a href="#">${element.name}</a>
+    <a href="">${element.name}</a>
     </div>
     </td>
     <td class="product-price">

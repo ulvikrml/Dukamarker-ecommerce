@@ -91,7 +91,7 @@ const brandSwiper = new Swiper(".brandSwiper", {
         0: {
             slidesPerView: 1
         },
-        400: {
+        420: {
             slidesPerView: 2
         },
         600: {

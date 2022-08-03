@@ -45,7 +45,6 @@
         }
     }
 
-
     main {
         .vip-products {
             .container {
@@ -70,18 +69,18 @@
         .discount-products {
             .products-container {
                 .card {
-                    min-height: 140px;
+                    min-height: 180px;
                 }
             }
         }
     }
 
     footer {
-        .footer_top {
-            .footer_contact {
+        .footer-top {
+            .footer-contact {
                 padding: 50px 10px 20px 40px;
 
-                .contact_box {
+                .contact-box {
                     margin-bottom: 30px;
                 }
             }
@@ -122,7 +121,7 @@
     }
 
     main {
-        .trend-products {
+        .products {
             .productSwiper {
                 .swiper-wrapper {
                     .swiper-slide {
@@ -133,24 +132,40 @@
                 }
             }
         }
+
+        .discount-products {
+            .products-container {
+                .card{
+                    min-height: 160px;
+                    .content {
+                        padding: 20px 40px;
+                        a {
+                            span {
+                                font-size: 20px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 
     footer {
-        .footer_top {
-            .footer_content {
+        .footer-top {
+            .footer-content {
                 flex-wrap: wrap;
 
-                .download_app {
+                .download-app {
                     width: 100% !important;
                     margin-bottom: 50px;
                 }
 
-                .content_box {
+                .content-box {
                     margin-left: 0;
                     width: 45%;
                 }
 
-                .sign_up {
+                .sign-up {
                     width: 60%;
                     margin-top: 40px;
                 }
@@ -181,7 +196,7 @@
             }
         }
 
-        .trend-products {
+        .products {
             .productSwiper {
                 height: 400px;
 
@@ -207,23 +222,55 @@
                 }
             }
         }
-    }
 
-    footer {
-        .footer_top {
-            .footer_content {
-                flex-wrap: wrap;
+        .discount-products {
+            .products-container {
                 flex-direction: column;
 
-                .content_box {
-                    margin-bottom: 40px;
+                .card {
+                    min-width: 100%;
+                    height: 180px;
+                    margin-right: 0;
+                    margin-bottom: 15px;
+
+                    .card-img {
+                        img {
+                            min-width: 100%;
+                        }
+                    }
+
+                    .content {
+                        padding: 35px 50px;
+                    }
+
                 }
             }
         }
 
-        .footer_bottom {
-            .footer_bottom_content {
-                .footer_menu {
+        .marquee-inform{
+            marquee{
+                margin-left: 30px;
+                margin-right: 30px;
+            }
+        }
+    }
+
+    footer {
+        .footer-top {
+            .footer-content {
+                flex-wrap: wrap;
+                flex-direction: column;
+
+                .content-box {
+                    margin-bottom: 40px;
+                    width: 100%;
+                }
+            }
+        }
+
+        .footer-bottom {
+            .footer-bottom-content {
+                .footer-menu {
                     ul {
                         li {
                             margin-top: 15px;
@@ -270,11 +317,12 @@
             }
         }
 
-        .trend-products {
+        .products {
             .productSwiper {
                 .swiper-wrapper {
                     .swiper-slide {
                         height: 300px;
+
                         .card-photo {
                             width: 140px;
                             margin-inline: auto;
@@ -288,17 +336,37 @@
             }
         }
 
+        .discount-products {
+            .products-container {
+                .card {
+                    height: 160px;
+
+                    .content {
+                        padding: 28px 45px;
+
+                        a {
+                            span {
+                                font-size: 20px;
+                            }
+                        }
+                    }
+
+                }
+            }
+        }
+
+        .marquee-inform{
+            marquee{
+                margin-left: 20px;
+                margin-right: 20px;
+            }
+        }
     }
 
     footer {
-        .footer_top {
-            .footer_content {
-
-                // .content_box{
-                //     margin-bottom: 40px;
-                //     width: 500px;
-                // }
-                .sign_up {
+        .footer-top {
+            .footer-content {
+                .sign-up {
                     width: 80%;
                 }
             }
@@ -307,10 +375,46 @@
 }
 
 @media screen and (max-width: 420px) {
+    main {
+        .brands {
+            padding-bottom: 60px;
+
+            .brandSwiper {
+                overflow: hidden;
+                width: 100%;
+                height: 100px;
+                margin: 80px 0px 0px;
+                display: flex;
+                background: white;
+                align-items: center;
+                border-radius: 20px;
+
+                .swiper-wrapper {
+                    height: 150px;
+
+                    .brand {
+                        min-width: 110px;
+
+                        img {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     footer {
-        .footer_bottom {
-            .footer_bottom_content {
-                .footer_payment {
+        .footer-top {
+            .footer-content {
+                .sign-up {
+                    width: 90%;
+                }
+            }
+        }
+        .footer-bottom {
+            .footer-bottom-content {
+                .footer-payment {
                     margin-inline: auto;
                     width: 90%;
 
@@ -322,15 +426,18 @@
         }
     }
 }
+
 @media screen and (max-width: 370px) {
-    main{
-        .trend-products {
+    main {
+        .products {
             .productSwiper {
                 margin-bottom: 50px;
                 overflow: hidden;
+
                 .swiper-wrapper {
                     .swiper-slide {
                         height: 345px;
+
                         .card-photo {
                             width: 60%;
                             margin-inline: auto;
@@ -340,6 +447,25 @@
                             height: 415px;
                         }
                     }
+                }
+            }
+        }
+
+        .discount-products {
+            .products-container {
+                .card {
+                    height: 160px;
+
+                    .content {
+                        padding: 25px 30px;
+
+                        a {
+                            span {
+                                font-size: 18px;
+                            }
+                        }
+                    }
+
                 }
             }
         }

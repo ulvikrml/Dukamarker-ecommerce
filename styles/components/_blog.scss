@@ -1,6 +1,6 @@
 main{
     .blog{
-        margin-top: 120px;
+        margin-top: 30px;
         .blogSwiper{
             margin-top: 30px;
             display: flex;
@@ -14,7 +14,7 @@ main{
                 position: relative;
                 // margin-right: 20px;
                 // overflow: hidden;
-                .card_img{
+                .card-img{
                     overflow: hidden;
                     width: 100%;
                     max-height: 147px;
@@ -30,7 +30,7 @@ main{
                 &:hover img{
                     transform: scale(1.1,1.1);
                 }
-                .card_content{
+                .card-content{
                     padding: 23px 20px;
                     .link{
                         color: rgba(0,0,0,.8);
@@ -38,7 +38,7 @@ main{
                         display: inline-block;
                         margin-bottom: 10px;
                     }
-                    .post_by{
+                    .post-by{
                         color: #999999;
                         font-size: 12px;
                         .poster{
@@ -56,7 +56,7 @@ main{
                         -webkit-box-orient: vertical;
                         margin: 20px 0px;
                     }
-                    .read_more{
+                    .read-more{
                         padding-top: 20px;
                         border-top: 1px solid rgba(225, 225, 225,.7);
                         font-size: 14px;
