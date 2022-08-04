@@ -375,9 +375,9 @@ const showViewModal = (data) => {
     overlayModal();
 }
 
-const overlayModal = ()=>{
+const overlayModal = () => {
     const quickViewOverlay = document.querySelector('.quick-view-overlay');
-    quickViewOverlay.addEventListener('click',()=>{
+    quickViewOverlay.addEventListener('click', () => {
         hideModal();
     })
 }
@@ -392,7 +392,7 @@ const addToCart = () => {
                 const product = products.find(item => item.id == productId);
                 if (cart.some(item => item.id == productId)) {
                     cart.forEach(item => {
-                        if (item.id == productId) {
+                        if (item.id == productId && item.numberOfUnits != product.stock) {
                             item.numberOfUnits = item.numberOfUnits + 1;
                         }
                     })
@@ -608,6 +608,32 @@ const renderSubTotal = () => {
     updateCarHeaderPrice(subTotalPrice);
 }
 
+
+const checkInputs = () => {
+    const productInputs = document.querySelectorAll('.product-num');
+    productInputs.forEach(input => {
+        input.addEventListener('change', () => {
+            const productId = input.closest('.product-card').dataset.id;
+            const product = cart.filter(item => {
+                return item.id == productId;
+            })
+            const stock = product[0].stock;
+            if (input.value > stock) {
+                input.value = stock;
+                changeUnitsNumber('change', productId, stock);
+            }
+            else if (input.value < 1) {
+                input.value = 1;
+                changeUnitsNumber('change', productId, 1);
+            }
+            else{
+                input.value = input.value.toString().replace(/^0+/, '');
+                changeUnitsNumber('change', productId, input.value);
+            }
+        })
+    })
+}
+
 const cartItemContainer = document.querySelector('.cart-items-wrapper');
 const mapCart = () => {
     cartItemContainer.innerHTML = ``;
@@ -637,7 +663,7 @@ const mapCart = () => {
     <td class="product-quantity">
     <div class="quantity-input">
     <i class="fas fa-angle-up quantity-plus input-arrow" onClick="changeUnitsNumber('plus',${element.id})"></i>
-    <input type="number" class="input-text" step="1" min="1" max="${element.stock}" name="quantity" value="${element.numberOfUnits}"
+    <input type="number" class="input-text product-num" step="1" min="1" max="${element.stock}" name="quantity" value="${element.numberOfUnits}"
     size="3">
     <i class="fas fa-angle-down quantity-minus input-arrow" onClick="changeUnitsNumber('minus', ${element.id})"></i>
     </div>
@@ -659,8 +685,10 @@ const mapCart = () => {
         cartItemContainer.appendChild(data);
         cartItemContainer.style.height = '200px';
     }
+
     delItemCart();
     renderSubTotal();
+    checkInputs();
 }
 
 const delItemCart = () => {
@@ -680,7 +708,7 @@ const delItemCart = () => {
     })
 }
 
-const changeUnitsNumber = (action, id) => {
+const changeUnitsNumber = (action, id, num) => {
     cart = cart.map((item) => {
         let numberOfUnits = item.numberOfUnits;
 
@@ -690,6 +718,9 @@ const changeUnitsNumber = (action, id) => {
             }
             else if (action == 'plus' && numberOfUnits < item.stock) {
                 numberOfUnits++;
+            }
+            else if (action == 'change') {
+                numberOfUnits = num;
             }
         }
 
