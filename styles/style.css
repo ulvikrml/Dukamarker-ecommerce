@@ -99,6 +99,25 @@ header .header-bottom .container {
   align-items: center;
   padding: 15px 0px;
 }
+header .header-bottom .container .mobile-menu {
+  display: none;
+}
+header .header-bottom .container .mobile-menu .mobile-menu-bar {
+  color: #ffffff;
+  transition: 0.3s ease;
+  display: flex;
+  align-items: center;
+}
+header .header-bottom .container .mobile-menu .mobile-menu-bar .hamburger {
+  font-size: 20px;
+  margin-right: 15px;
+}
+header .header-bottom .container .mobile-menu .mobile-menu-bar .menu-txt {
+  font-size: 14px;
+}
+header .header-bottom .container .mobile-menu .mobile-menu-bar:hover {
+  color: #16BCDC;
+}
 header .header-bottom .container .menu .menu-link {
   color: white;
   font-size: 14px;
@@ -946,6 +965,126 @@ footer .container .footer-bottom .footer-bottom-content .footer-menu ul li:not(:
     opacity: 0;
   }
 }
+.mobile-main-menu__container {
+  z-index: 9;
+  position: fixed;
+  top: 0;
+  left: -300px;
+  width: 300px;
+  height: 100vh;
+  background: white;
+  transition: 0.3s ease-in-out;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+.mobile-main-menu__container .head-menu-mobile {
+  height: 135px;
+  display: flex;
+  flex-direction: column;
+  background: black;
+  color: white;
+  position: relative;
+}
+.mobile-main-menu__container .head-menu-mobile .main-link-enter {
+  color: white;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: 12px;
+  cursor: pointer;
+}
+.mobile-main-menu__container .head-menu-mobile .author {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
+  padding: 15px 0px 0px 10px;
+}
+.mobile-main-menu__container .head-menu-mobile .author .avatar {
+  border-radius: 50%;
+  width: 60px;
+}
+.mobile-main-menu__container .head-menu-mobile .author .author-name {
+  font-weight: 500;
+  margin-block: 10px 0px;
+}
+.mobile-main-menu__container .head-menu-mobile .author .email {
+  font-size: 13px;
+  color: rgba(225, 225, 225, 0.7);
+}
+.mobile-main-menu__container .main-menu-mobile .main-menu-bar-mobile {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  border-bottom: 1px solid #e5e5e5;
+}
+.mobile-main-menu__container .main-menu-mobile .main-menu-bar-mobile__txt {
+  height: 50px;
+  width: 300px;
+  margin: auto;
+  border-right: 1px solid #e5e5e5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mobile-main-menu__container .main-menu-mobile .main-menu-bar-mobile__txt p {
+  font-weight: 500;
+  font-size: 14px;
+}
+.mobile-main-menu__container .main-menu-mobile .main-menu-bar-mobile__close-btn {
+  height: 50px;
+  width: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mobile-main-menu__container .main-menu-mobile .main-menu-bar-mobile__close-btn .btn {
+  font-size: 20px;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+.mobile-main-menu__container .main-menu-mobile .main-menu-bar-mobile__close-btn .btn:hover {
+  color: #16BCDC;
+}
+.mobile-main-menu__container .main-menu-mobile .main-menu-links .menu-link {
+  border-bottom: 1px solid #e5e5e5;
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+.mobile-main-menu__container .main-menu-mobile .main-menu-links .menu-link .link-text {
+  padding-left: 15px;
+  transition: 0.3s ease;
+  font-size: 14px;
+  display: inline-block;
+  color: black;
+}
+.mobile-main-menu__container .main-menu-mobile .main-menu-links .menu-link:hover .link-text {
+  color: #16BCDC;
+}
+.mobile-main-menu__overlay {
+  z-index: 2;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  -webkit-backdrop-filter: blur(2px);
+          backdrop-filter: blur(2px);
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.3s ease-in-out;
+}
+
+.active-menu .mobile-main-menu__container {
+  left: 0;
+}
+
+.active-menu .mobile-main-menu__overlay {
+  visibility: visible;
+  opacity: 1;
+}
+
 @media screen and (min-width: 1400px) {
   .container {
     width: 85%;
@@ -1013,6 +1152,12 @@ footer .container .footer-bottom .footer-bottom-content .footer-menu ul li:not(:
   .container {
     width: 720px !important;
   }
+  header .header-bottom .container .menu {
+    display: none;
+  }
+  header .header-bottom .container .mobile-menu {
+    display: inline-block;
+  }
   main .products .productSwiper .swiper-wrapper .swiper-slide .adds {
     right: 22px;
   }
@@ -1044,6 +1189,32 @@ footer .container .footer-bottom .footer-bottom-content .footer-menu ul li:not(:
 @media screen and (max-width: 768px) {
   .container {
     width: 95% !important;
+  }
+  header .header-top .container {
+    flex-direction: column;
+  }
+  header .header-top .container .logo {
+    width: 35%;
+  }
+  header .header-top .container .user-prop {
+    width: 100%;
+    justify-content: center;
+    order: 3;
+  }
+  header .header-top .container .search-bar {
+    margin-bottom: 25px;
+    order: 2;
+  }
+  header .header-bottom .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  header .header-bottom .container .mobile-menu {
+    margin-bottom: 10px;
+  }
+  header .header-bottom .container .mobile-menu .mobile-menu-bar .hamburger {
+    margin-right: 10px;
   }
   main .vip-products .vip-products-left .vip-product-swiper .swiper-wrapper .swiper-slide .content .swiper-title {
     font-size: 36px;
@@ -1091,13 +1262,19 @@ footer .container .footer-bottom .footer-bottom-content .footer-menu ul li:not(:
   }
   footer .footer-top .footer-content .content-box {
     margin-bottom: 40px;
-    width: 100%;
+    width: 100% !important;
+  }
+  footer .footer-top .footer-content .sign-up {
+    width: 70% !important;
   }
   footer .footer-bottom .footer-bottom-content .footer-menu ul li {
     margin-top: 15px;
   }
 }
 @media screen and (max-width: 592px) {
+  header .header-top .container .logo {
+    width: 45%;
+  }
   main .headline h3 {
     font-size: 20px;
   }
@@ -1151,6 +1328,15 @@ footer .container .footer-bottom .footer-bottom-content .footer-menu ul li:not(:
   }
 }
 @media screen and (max-width: 420px) {
+  header .header-top .container .logo {
+    width: 55%;
+  }
+  header .header-top .container .user-prop {
+    flex-wrap: wrap;
+  }
+  header .header-top .container .user-prop .res-mt-15 {
+    margin-top: 15px;
+  }
   main .brands {
     padding-bottom: 60px;
   }
@@ -1174,7 +1360,7 @@ footer .container .footer-bottom .footer-bottom-content .footer-menu ul li:not(:
     width: 100%;
   }
   footer .footer-top .footer-content .sign-up {
-    width: 90%;
+    width: 90% !important;
   }
   footer .footer-bottom .footer-bottom-content .footer-payment {
     margin-inline: auto;

@@ -7,8 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DukaMarket | E-commerce</title>
     <link rel="stylesheet" href="./styles/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">   
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/fontawesome.min.css" integrity="sha512-P9vJUXK+LyvAzj8otTOKzdfF1F3UYVl13+F8Fof8/2QNb8Twd6Vb+VD52I7+87tex9UXxnzPgWA3rH96RExA7A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/fontawesome.min.css"
+        integrity="sha512-P9vJUXK+LyvAzj8otTOKzdfF1F3UYVl13+F8Fof8/2QNb8Twd6Vb+VD52I7+87tex9UXxnzPgWA3rH96RExA7A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js" integrity="sha512-Tn2m0TIpgVyTzzvmxLNuqbSJH3JP8jm+Cy3hvHrW7ndTDcJ1w5mBiksqDBb8GpE2ksktFvDB/ykZ0mDpsZj20w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" script/> -->
@@ -19,6 +21,39 @@
 
 <body>
     <div class="quick-view-modal"></div>
+    <div class="mobile-main-menu">
+        <div class="mobile-main-menu__container">
+            <div class="head-menu-mobile">
+                <span class="main-link-enter">
+                    Login</span>
+                <div class="author">
+                    <img class="avatar" src="./img/icon/none.jpg" alt="Avatar Mobile">
+                    <span class="author-name">Guest</span>
+                    <span class="email">Example@email.com</span>
+                </div>
+            </div>
+            <div class="main-menu-mobile">
+                <div class="main-menu-bar-mobile">
+                    <div class="main-menu-bar-mobile__txt">
+                        <p>MAIN MENU</p>
+                    </div>
+                    <div class="main-menu-bar-mobile__close-btn">
+                        <a class="btn close-menu-btn">x</a>
+                    </div>
+                </div>
+                <div class="main-menu-links">
+                    <div class="menu-link"><a class="link-text" href="index.html"> Home</a></div>
+                    <div class="menu-link"><a class="link-text" href="wishlist.html">Wishlist</a></div>
+                    <div class="menu-link"><a class="link-text" href="cart.html">Cart</a></div>
+                    <div class="menu-link"><a class="link-text" href="">Shop</a></div>
+                    <div class="menu-link"><a class="link-text" href="">Blog</span></a></div>
+                    <div class="menu-link"><a class="link-text" href="">About Us</a></div>
+                    <div class="menu-link"><a class="link-text" href="">Contact Us</a></div>
+                </div>
+            </div>
+        </div>
+        <div class="mobile-main-menu__overlay close-menu-btn"></div>
+    </div>
 
     <header>
         <div class="header-top">
@@ -58,7 +93,7 @@
                             </div>
                         </a>
                     </div>
-                    <div class="box">
+                    <div class="box res-mt-15">
                         <a href="cart.html">
                             <div class="left count-box">
                                 <i class="fas fa-shopping-basket"></i>
@@ -75,6 +110,12 @@
         </div>
         <div class="header-bottom">
             <div class="container">
+                <div class="mobile-menu">
+                    <a class="mobile-menu-bar menu-btn" href="javascript:void(0)">
+                        <i class="fas fa-bars hamburger"></i>
+                        <span class="menu-txt">MENU</span>
+                    </a>
+                </div>
                 <div class="menu">
                     <a class="menu-link" href="index.html">HOME</a>
                     <a class="menu-link" href="#">SHOP</a>
@@ -132,7 +173,7 @@
                     <div class="vip-right-inner">
                         <div class="row">
                             <div class="banner mr-20">
-                                <img src="img/banner/banner1.png" alt="banner1" draggable="false" >
+                                <img src="img/banner/banner1.png" alt="banner1" draggable="false">
                                 <div class="content">
                                     <h3><a class="banner-title" href="#">Canyon<br> Star Raider</a></h3>
                                     <p class="banner-txt">Headphone & Audio</p>
@@ -166,7 +207,7 @@
                 </div>
             </div>
         </section>
-        <section class="products trend-products">    
+        <section class="products trend-products">
             <div class="container">
                 <div class="headline">
                     <h3>Hot Trending Products</h3>
@@ -296,7 +337,7 @@
                 <span>With each receipt over $150 from AYO Store get voucher 15% off immediately.</span>
             </marquee>
         </section>
-        <section class="products recommend-products">    
+        <section class="products recommend-products">
             <div class="container">
                 <div class="headline">
                     <h3>Recommended For You</h3>
@@ -489,6 +530,7 @@
             </div>
         </section>
     </main>
+
     <footer>
         <div class="container">
             <div class="footer-top">
@@ -640,6 +682,7 @@
             </div>
         </div>
     </footer>
+
     <script src="./node_modules/izitoast/dist/js/iziToast.min.js"></script>
     <script src="./main.js"></script>
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>

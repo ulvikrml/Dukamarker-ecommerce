@@ -578,6 +578,7 @@ cart = cart[0] == null ? [] : cart;
 const totalPriceCart = document.querySelector('.total-price-count');
 const updateCarHeaderPrice = (price) => {
     price = JSON.parse(localStorage.getItem('totalPrice'));
+    price = price == null ? `0.00` : price;
     totalPriceCart.innerHTML = `$${price}`;
 }
 
@@ -608,7 +609,6 @@ const renderSubTotal = () => {
     updateCarHeaderPrice(subTotalPrice);
 }
 
-
 const checkInputs = () => {
     const productInputs = document.querySelectorAll('.product-num');
     productInputs.forEach(input => {
@@ -626,7 +626,7 @@ const checkInputs = () => {
                 input.value = 1;
                 changeUnitsNumber('change', productId, 1);
             }
-            else{
+            else {
                 input.value = input.value.toString().replace(/^0+/, '');
                 changeUnitsNumber('change', productId, input.value);
             }
@@ -744,3 +744,16 @@ updateCartCount(cart.length);
 if (cartItemContainer) {
     mapCart();
 };
+
+const openMenuBtn = document.querySelector('.mobile-menu-bar');
+const closeMenuBtns = document.querySelectorAll('.close-menu-btn');
+const mobileMenu = document.querySelector('.mobile-main-menu');
+const mobileMenuOverlay = document.querySelector('.mobile-main-menu__overlay');
+openMenuBtn.addEventListener('click', () => {
+    mobileMenu.classList.add('active-menu');
+});
+closeMenuBtns.forEach(btn =>{
+    btn.addEventListener('click', () => {
+        mobileMenu.classList.remove('active-menu');
+    })
+})
