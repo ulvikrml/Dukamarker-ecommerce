@@ -325,6 +325,9 @@ const hideModal = () => {
 }
 
 const showViewModal = (data) => {
+    data.discount ? viewModal.classList.add('indiscount') : '';
+    let oldPrice = data.discount ? `
+        <span class="old-price">${data.old_price}</span>` : ``;
     viewModal.innerHTML = `
     <div class="quick-view-overlay"></div>
         <div class="modal-container product-card" data-id=${data.id}>
@@ -333,6 +336,7 @@ const showViewModal = (data) => {
                 <h2>${data.name}</h2>
                 <div class="price">
                     <p class="new-price">${data.current_price}</p>
+                    ${oldPrice}
                 </div>
                 <div class="product-prop">
                     <ul>
@@ -752,7 +756,7 @@ const mobileMenuOverlay = document.querySelector('.mobile-main-menu__overlay');
 openMenuBtn.addEventListener('click', () => {
     mobileMenu.classList.add('active-menu');
 });
-closeMenuBtns.forEach(btn =>{
+closeMenuBtns.forEach(btn => {
     btn.addEventListener('click', () => {
         mobileMenu.classList.remove('active-menu');
     })

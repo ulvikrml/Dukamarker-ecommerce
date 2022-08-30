@@ -7,7 +7,6 @@
     bottom: 0;
     background: rgba(0, 0, 0, 0.8);
     transition: 0.3s ease-in-out;
-
     display: none;
     opacity: 0;
      
@@ -17,7 +16,6 @@
         left: 50%;
         transform: translateX(-50%);
         height: auto;
-
         padding: 40px ;
         background: white;
         display: flex;
@@ -39,12 +37,12 @@
             }
 
             .price {
+                display: flex;
                 .new-price {
                     font-weight: 500;
                     padding-block: 15px;
                     font-size: 25px;
                 }
-
                 border-bottom: 1px solid rgba(225, 225, 225, .8);
             }
 
@@ -76,25 +74,6 @@
                 display: flex;
                 border-bottom: 1px solid rgba(225, 225, 225, .8);
                 height: 90px;
-
-                .quantity {
-                    position: relative;
-
-                    .input-text {
-                        text-align: center;
-                        width: 110px;
-                        height: 100%;
-                        padding: 13px 10px;
-                        font-size: 14px;
-                        outline: none;
-                        border-radius: 3px;
-                        border: 2px solid rgba(190, 190, 190, 0.521);
-                        &:focus{
-                        border: 2px solid $primaryTxtColor;
-
-                        }
-                    }
-                }
 
                 .btn {
                     width: 100%;
@@ -152,6 +131,27 @@
     .quick-view-overlay{
         width: 100%;
         height: 100vh;
+    }
+}
+.indiscount {
+    .content {
+        .price {
+            display: flex;
+            align-items: center;
+            .new-price {
+                color: #CC1414;
+            }
+
+            .old-price {
+                display: inline-block;
+                color: #a4a4a4;
+                font-weight: 400 !important;
+                font-size: 16px;
+                margin-left: 5px;
+                text-decoration: line-through;
+            }
+        }
+
     }
 }
 
