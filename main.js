@@ -386,6 +386,35 @@ const overlayModal = () => {
     })
 }
 
+
+const totalPriceCart = document.querySelector('.total-price-count');
+const updateCartHeaderPrice = (price) => {
+    price = JSON.parse(localStorage.getItem('totalPrice'));
+    price = price == null ? `0.00` : price;
+    totalPriceCart.innerHTML = `$${price}`;
+}
+
+let cart = [];
+cart = JSON.parse(localStorage.getItem('cart'));
+cart = cart == null ? [] : cart;
+cart = cart[0] == null ? [] : cart;
+let subTotalPrice = 0;
+
+
+const getTotalPrice = () => {
+    let totalPrice = 0;
+    cart.forEach(el => {
+        totalPrice += el.current_price.slice(1, 8) * el.numberOfUnits;
+    });
+
+    totalPrice = totalPrice.toFixed(2)
+    subTotalPrice = totalPrice;
+
+    updateCartHeaderPrice(totalPrice);
+    localStorage.setItem('totalPrice', JSON.stringify(totalPrice));
+    return totalPrice
+}
+
 const addToCart = () => {
     const addToCartBtns = document.querySelectorAll('.addToCartBtn');
     addToCartBtns.forEach(btn => {
@@ -430,6 +459,8 @@ const addToCart = () => {
             renderSubTotal();
         })
     })
+    const beforeinity = getTotalPrice();
+    updateCartHeaderPrice(beforeinity);
 }
 addToCart();
 
@@ -573,44 +604,17 @@ updateWishlistCount(wishList.length);
 
 //     CART
 
-// let cart = [{ ...products[0], numberOfUnits: 3 }];
-let cart = [];
-cart = JSON.parse(localStorage.getItem('cart'));
-cart = cart == null ? [] : cart;
-cart = cart[0] == null ? [] : cart;
-
-const totalPriceCart = document.querySelector('.total-price-count');
-const updateCarHeaderPrice = (price) => {
-    price = JSON.parse(localStorage.getItem('totalPrice'));
-    price = price == null ? `0.00` : price;
-    totalPriceCart.innerHTML = `$${price}`;
-}
-
 const totalPriceText = document.querySelector('.total-price');
-let subTotalPrice = 0;
+
 const renderSubTotal = () => {
-    const getTotalPrice = () => {
-        let totalPrice = 0;
-        cart.forEach(el => {
-            totalPrice += el.current_price.slice(1, 8) * el.numberOfUnits;
-        });
-
-        totalPrice = totalPrice.toFixed(2)
-        subTotalPrice = totalPrice;
-
-        updateCarHeaderPrice(totalPrice);
-        localStorage.setItem('totalPrice', JSON.stringify(totalPrice));
-        return totalPrice
-    }
     if (totalPriceText) {
-        // getTotalPrice();
         totalPriceText.innerHTML = `$${getTotalPrice()}`;
     }
     else {
         getTotalPrice();
 
     }
-    updateCarHeaderPrice(subTotalPrice);
+    updateCartHeaderPrice(subTotalPrice);
 }
 
 const checkInputs = () => {
@@ -742,7 +746,7 @@ const updateCartCount = (count) => {
     countCart.innerHTML = count;
 }
 
-updateCarHeaderPrice(subTotalPrice);
+updateCartHeaderPrice(subTotalPrice);
 updateCartCount(cart.length);
 
 if (cartItemContainer) {
