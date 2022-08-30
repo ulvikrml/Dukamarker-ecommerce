@@ -22,7 +22,7 @@ footer {
 
                     .icon {
                         i {
-                            color: #16bcdc;
+                            color: $primaryTxtColor;
                             font-size: 40px;
                             margin-right: 20px;
                         }
@@ -130,7 +130,7 @@ footer {
                         }
 
                         button {
-                            background-color: #16bcdc;
+                            background-color: $primaryTxtColor;
                             color: white;
                             border: none;
                             outline: none;
