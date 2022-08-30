@@ -438,15 +438,15 @@ const addToCart = () => {
                 }
                 localStorage.setItem('cart', JSON.stringify(cart));
                 updateCartCount(cart.length);
-                iziToast.success({
-                    title: 'Success',
-                    message: `${product.name} added to cart`,
-                    color: 'blue',
-                    titleSize: '15px',
-                    titleLineHeight: '1.4',
-                    messageSize: '15px',
-                    messageLineHeight: '1.4'
-                });
+                // iziToast.success({
+                //     title: 'Success',
+                //     message: `${product.name} added to cart`,
+                //     color: 'blue',
+                //     titleSize: '15px',
+                //     titleLineHeight: '1.4',
+                //     messageSize: '15px',
+                //     messageLineHeight: '1.4'
+                // });
                 btn.innerHTML = 'VIEW CART';
                 btn.classList.add('added');
             }
@@ -457,10 +457,10 @@ const addToCart = () => {
                 location.href = 'cart.html';
             });
             renderSubTotal();
+            const beforeinity = getTotalPrice();
+            updateCartHeaderPrice(beforeinity);
         })
     })
-    const beforeinity = getTotalPrice();
-    updateCartHeaderPrice(beforeinity);
 }
 addToCart();
 
